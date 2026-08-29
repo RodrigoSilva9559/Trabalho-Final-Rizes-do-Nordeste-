@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Confirmado | Raízes do Nordeste</title>
+
+    <link rel="icon" type="image/svg+xml" href="./imagens/site/icone.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style_pedido_confirmado.css">
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="cabecalho_site">
+        <div class="logo">
+            <a class="img" href="index.html">
+                <img src="./imagens/site/logo.png" alt="Voltar para a página inicial">
+            </a>
+        </div>
+
+        <div class="caixa_titulo">
+            <div class="titulo">
+                <h1>Raízes do Nordeste</h1>
+                <h2>o verdadeiro sabor nordestino</h2>
+            </div>
+        </div>
+        
+        <div class="complemento_titulo">
+            <div class="localizacao">
+                <!-- LIXO/DESNECESSÁRIO: Envolver a imagem de unidade num link para "carrinho.html" que não possui relação funcional com a seleção de unidades -->
+                <a href="carrinho.html">
+                    <img src="./imagens/site/local (2).png" alt="Escolher unidade">
+                </a>
+                <p>Escolha sua unidade:</p>
+        
+                <select>
+                    <option>Camaquã</option>
+                    <option>Porto Alegre</option>
+                    <option>Pelotas</option>
+                </select>
+            </div>
+        
+        
+            <div class="atendimento">
+                <div class="horario">
+                    <!-- LIXO/DESNECESSÁRIO: Envolver a imagem de atendimento num link para "carrinho.html" sem função de navegação direta -->
+                    <a href="carrinho.html">
+                        <img src="./imagens/site/horario (2).png" alt="Horário de atendimento">
+                    </a>
+                    <p>Aberto<br>de terça a domingo<br>das 18h às 23h</p>
+                </div>
+            </div>
+
+
+            <div class="carrinho_usuario">
+                <div class="itens">
+                    <a href="carrinho.html">
+                        <img src="./imagens/site/carrinho.png" alt="Carrinho de Compras">
+                    </a>
+                    <p>Meu Carrinho</p>
+                </div>
+
+                <div class="itens">
+                    <a href="login_cadastro.html">
+                        <img src="./imagens/site/usuario.png" alt="Perfil do Usuário">
+                    </a>
+                    <p>Meu Perfil</p>
+                </div>
+            </div>
+         </div>
+    </header>
+
+    <!-- Navegação Principal -->
+    <nav id="nav-principal">
+        <div class="menu-lista">
+            <a href="index.html">🏠 HOME</a>
+            <a href="cardapio.html">📋 CARDÁPIO</a>
+            <a href="sobre.html">ℹ️ SOBRE NÓS</a>
+            <a href="contato.html">👤 CONTATO</a>
+        </div>
+    </nav>
+
+    <!-- ================= PEDIDO CONFIRMADO ================= -->
+    <main class="pedido_confirmado">
+
+        <div class="icone_confirmado">✓</div>
+
+        <h1>Pedido confirmado!</h1>
+
+        <p class="mensagem">
+            Obrigado pela sua compra! ❤️
+            <br>
+            Seu pedido foi recebido com sucesso.
+        </p>
+
+        <!-- Número do pedido -->
+        <div class="numero_pedido">
+            <span>Número do pedido</span>
+            <strong id="exibicao_numero_pedido">#0000</strong>
+        </div>
+
+        <!-- Mensagem de Pontos Fidelidade Ganhos -->
+        <!-- LIXO/DESNECESSÁRIO: Estilos inline excessivos (background, border, padding, etc.) podem ser movidos para uma classe no CSS -->
+        <div id="caixa_pontos_confirmado" style="display: none; background: #fff8e1; border: 1px solid #ffe082; padding: 12px; border-radius: 8px; margin: 15px auto; max-width: 400px; color: #2e7d32; font-weight: 600;">
+            <p id="msg_pontos_ganhos">Você ganhou pontos neste pedido!</p>
+        </div>
+
+        <!-- Informações -->
+        <div class="informacoes_pedido">
+            <div class="informacao">
+                <span>📍 Unidade</span>
+                <strong>Camaquã</strong>
+            </div>
+
+            <div class="informacao">
+                <span>🛵 Entrega</span>
+                <strong>Entrega em casa</strong>
+            </div>
+
+            <div class="informacao">
+                <span>⏱️ Tempo estimado</span>
+                <strong>40 - 50 minutos</strong>
+            </div>
+        </div>
+
+        <!-- Status -->
+        <div class="status_pedido">
+            <h2>📋 Acompanhe seu pedido</h2>
+
+            <div class="etapas">
+                <div class="etapa ativa">
+                    <div class="bolinha">✓</div>
+                    <span>Pedido recebido</span>
+                </div>
+
+                <div class="linha"></div>
+
+                <div class="etapa">
+                    <div class="bolinha">2</div>
+                    <span>Em preparo</span>
+                </div>
+
+                <div class="linha"></div>
+
+                <div class="etapa">
+                    <div class="bolinha">3</div>
+                    <span>Saiu para entrega</span>
+                </div>
+
+                <div class="linha"></div>
+
+                <div class="etapa">
+                    <div class="bolinha">4</div>
+                    <span>Entregue</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botões -->
+        <div class="acoes">
+            <a href="perfil.html" class="botao acompanhar">
+                📋 Ver meus pedidos
+            </a>
+
+            <a href="cardapio.html" class="botao continuar">
+                🍔 Continuar comprando
+            </a>
+        </div>
+
+    </main>
+
+    <script src="global.js"></script>
+    <script src="pedido_confirmado.js"></script>
+
+</body>
+
+</html>

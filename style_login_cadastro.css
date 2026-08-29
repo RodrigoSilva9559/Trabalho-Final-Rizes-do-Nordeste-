@@ -1,0 +1,493 @@
+/* ==========================================
+   1. RESET GLOBAL E ESTRUTURA BASE
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #5a2b0f;
+    padding-bottom: 60px;
+}
+
+/* ==========================================
+   2. TIPIFICAÇÃO DE TÍTULOS E TEXTOS
+   ========================================== */
+h1 {
+    font-family: 'Lilita One', cursive;
+    font-size: clamp(36px, 5vw, 70px);
+    color: #ffffff;
+    -webkit-text-stroke: 3px #5a2b0f;
+    text-shadow: 1px 1px 0 #c85b16, 14px 1px 10px rgba(0,0,0,.35);
+}
+
+h2 {
+    font-family: 'Lilita One', cursive;
+    font-size: 28px;
+    color: #ffd54f;
+    font-weight: normal;
+}
+
+p {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ==========================================
+   3. CABEÇALHO (HEADER) E LOGO
+   ========================================== */
+header.cabecalho_site {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #d05714;
+}
+
+.logo {
+    padding: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 0 #8D5A00, 0 2px 2px rgba(0,0,0,.4);
+    transition: .3s;   
+}
+
+.logo img:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+.caixa_titulo {
+    flex: 1;
+    text-align: center;
+}
+
+.titulo {
+    padding: 15px;
+}
+
+/* LIXO/DESNECESSÁRIO: O uso exagerado de !important força regras desnecessariamente e dificulta sobrescritas limpas na responsividade */
+.complemento_titulo {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-around !important; /* Espaça a unidade e o horário entre si */
+    flex: 1 !important; /* Ocupa todo o espaço até encostar na caixa preta */
+    margin-top: 15px;
+    padding: 10px 0;
+}
+
+.complemento_titulo select {
+    background: #ffd54f;
+    border: 3px solid #5a2b0f;
+    border-radius: 10px;
+    padding: 2px 6px;
+}
+
+.horario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.complemento_titulo img, .atendimento img {
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+    transition: .3s;
+}
+
+/* ==========================================
+   4. CARRINHO E PERFIL (CABEÇALHO)
+   ========================================== */
+.carrinho_usuario {
+    display: flex;
+    gap: 20px;
+    padding: 35px 10px 0 10px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.itens {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.itens img {
+    width: 60px;
+    height: auto;
+    background: linear-gradient(to bottom, #FFE082, #F9A825);
+    border: 3px solid #4E342E;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 5px 0 #7A4E00, 0 8px 18px rgba(0,0,0,.3);
+    transition: .25s;
+}
+
+.itens img:hover {
+    transform: translateY(-4px) scale(1.08);
+}
+
+.itens p {
+    color: white;
+    font-weight: bold;
+}
+
+/* ==========================================
+   5. NAVEGAÇÃO PRINCIPAL (NAV)
+   ========================================== */
+nav {
+    display: flex;
+    justify-content: center;
+    background: #3a1c08;
+    padding: 15px 0;
+    color: white;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
+    margin: 5px 12px;
+    position: relative;
+    transition: .3s;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 5px;
+    background: #FFD54F;
+    transition: .3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* LIXO/DESNECESSÁRIO: Regra declarada sem nenhum uso no arquivo HTML fornecido */
+.menu-mobile {
+    display: none;
+}
+
+/* ==========================================
+   6. ESTRUTURA DO CONTAINER LOGIN E CADASTRO
+   ========================================== */
+.container_login {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.login_cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: white;
+    border-radius: 18px;
+    border: 3px solid #3a1c08;
+    padding: 30px 20px;
+}
+
+.login_cadastro h2 {
+    font-family: 'Lilita One', cursive;
+    font-size: 35px;
+    color: #3a1c08;
+    margin-bottom: 10px;
+}
+
+.login_cadastro p {
+    color: #3a1c08;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    max-width: 600px;
+}
+
+.escolha {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto 10px;
+}
+
+.caixa_esquerda,
+.caixa_direita {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.caixa_esquerda {
+    border-right: 2px solid #3a1c08;
+}
+
+.login_cadastro h3 {
+    font-family: 'Lilita One', cursive;
+    font-size: 28px;
+    color: #d05714;
+    margin-bottom: 15px;
+}
+
+/* ==========================================
+   7. FORMULÁRIOS, INPUTS E BOTÕES
+   ========================================== */
+.campo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: border-color .3s;
+}
+
+.campo input:focus {
+    border-color: #d05714;
+}
+
+.login_cadastro button {
+    margin-top: 15px;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 8px;
+    background: #2e7d32;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background .3s, transform .2s;
+}
+
+.login_cadastro button:hover {
+    background: #1b5e20;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   8. MODAL DE TERMOS LGPD
+   ========================================== */
+.modal_lgpd_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal_lgpd_conteudo {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 600px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    text-align: left;
+}
+
+.modal_lgpd_conteudo h2 {
+    color: #c0392b;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.subtitulo_lgpd {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.caixa_texto_lgpd {
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.caixa_texto_lgpd h3, .caixa_texto_lgpd h4 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.caixa_texto_lgpd p{
+    color: #3a1c08;
+}
+
+.acoes_lgpd {
+    margin-top: 20px;
+    text-align: right;
+}
+
+#btn_aceitar_lgpd {
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+#btn_aceitar_lgpd:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ==========================================
+   9. RODAPÉ (FOOTER)
+   ========================================== */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #3a1c08;
+    padding: 15px 0;
+    color: white;
+    transform: translateY(100%);
+    transition: transform .3s ease;
+    z-index: 1000;
+}
+
+footer.mostrar {
+    transform: translateY(0);
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
+    margin: 5px 12px;
+    position: relative;
+    text-align: center;
+}
+
+footer a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 5px;
+    background: #FFD54F;
+    transition: .3s;
+}
+
+footer a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================
+   10. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================== */
+@media (max-width: 768px) {
+    header.cabecalho_site {
+        flex-direction: column;
+    }
+
+    .complemento_titulo,
+    .atendimento,
+    .carrinho_usuario {
+        display: none;
+    }
+
+    #nav-principal {
+        display: block !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        background: #3a1c08;
+        z-index: 9999;
+        padding: 10px 0;
+        border-top: 2px solid #ffd54f;
+    }
+
+    #nav-principal .menu-lista {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #nav-principal .menu-lista a {
+        font-size: 11px;
+        padding: 5px 2px;
+        margin: 0;
+        text-align: center;
+        white-space: nowrap;
+        flex: 1;
+    }
+
+    /* LIXO/DESNECESSÁRIO: As classes .conteudo_flex e .container_contato não existem neste arquivo HTML */
+    .conteudo_flex {
+        flex-direction: column;
+    }
+
+    .container_contato {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    footer {
+        justify-content: space-around;
+        gap: 0;
+        padding-bottom: 60px;
+    }
+
+    footer a {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 1024px){ 
+    .caixa_titulo h1 {
+        white-space: nowrap;
+    }
+}

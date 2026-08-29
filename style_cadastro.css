@@ -1,0 +1,360 @@
+/* ==========================================
+   1. RESET GLOBAL E BASE
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    background: #5a2b0f;
+    padding-bottom: 90px;
+}
+
+h1 {
+    font-family: 'Lilita One', cursive;
+    font-size: clamp(36px, 5vw, 70px);
+    color: #ffffff;
+    -webkit-text-stroke: 3px #5a2b0f;
+    text-shadow: 1px 1px 0 #c85b16, 14px 1px 10px rgba(0,0,0,.35);
+}
+
+h2 {
+    font-family: 'Lilita One', cursive;
+    font-size: 28px;
+    color: #ffd54f;
+    font-weight: normal;
+}
+
+p {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ==========================================
+   2. CABEÇALHO (HEADER)
+   ========================================== */
+header.cabecalho_site {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #d05714;
+}
+
+.logo {
+    padding: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 0 #8D5A00, 0 2px 2px rgba(0,0,0,.4);
+    transition: .3s;   
+}
+
+.logo img:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+.caixa_titulo {
+    flex: 1;
+    text-align: center;
+}
+
+.titulo {
+    padding: 15px;
+}
+
+/* LIXO/DESNECESSÁRIO: O uso de !important não é necessário aqui no CSS base da versão Desktop */
+.complemento_titulo {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-around !important; /* Espaça a unidade e o horário entre si */
+    flex: 1 !important; /* Ocupa todo o espaço até encostar na caixa preta */
+    margin-top: 15px;
+    padding: 10px 0;
+}
+
+.complemento_titulo select {
+    background: #ffd54f;
+    border: 3px solid #5a2b0f;
+    border-radius: 10px;
+    padding: 2px 6px;
+}
+
+.horario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.complemento_titulo img, .atendimento img {
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.carrinho_usuario {
+    display: flex;
+    gap: 20px;
+    padding: 35px 10px 0 10px;
+    text-align: center;
+}
+
+.itens {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.itens img {
+    width: 60px;
+    height: auto;
+    background: linear-gradient(to bottom, #FFE082, #F9A825);
+    border: 3px solid #4E342E;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 5px 0 #7A4E00, 0 8px 18px rgba(0,0,0,.3);
+    transition: .25s;
+}
+
+.itens img:hover {
+    transform: translateY(-4px) scale(1.08);
+}
+
+.itens p {
+    color: white;
+    font-weight: bold;
+}
+
+/* ==========================================
+   3. NAVEGAÇÃO PRINCIPAL (NAV)
+   ========================================== */
+nav {
+    display: flex;
+    justify-content: center;
+    background: #3a1c08;
+    padding: 15px 0;
+    color: white;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
+    margin: 5px 12px;
+    position: relative;
+    transition: .3s;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 5px;
+    background: #FFD54F;
+    transition: .3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* LIXO/DESNECESSÁRIO: A classe .menu-mobile não existe no HTML desta página */
+.menu-mobile {
+    display: none;
+}
+
+/* ==========================================
+   4. ESTRUTURA DO CADASTRO
+   ========================================== */
+.criar_cadastro {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 35px;
+    background: white;
+    border-radius: 18px;
+    border: 3px solid #3a1c08;
+}
+
+.criar_cadastro > h2 {
+    font-family: 'Lilita One', cursive;
+    font-size: 36px;
+    text-align: center;
+    color: #3a1c08;
+    margin-bottom: 10px;
+}
+
+.descricao {
+    text-align: center;
+    color: #3a1c08;
+    margin-bottom: 30px;
+}
+
+/* ==========================================
+   5. FORMULÁRIOS E INPUTS
+   ========================================== */
+.formulario_cadastro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.dados_pessoais,
+.dados_endereco {
+    flex: 1;
+    min-width: 300px;
+    padding: 25px;
+    background: #fff8e1;
+    border-radius: 15px;
+    border: 2px solid #ffd54f;
+}
+
+.dados_pessoais h3,
+.dados_endereco h3 {
+    font-family: 'Lilita One', cursive;
+    font-size: 28px;
+    color: #3a1c08;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.campo label {
+    color: #3a1c08;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color .3s;
+}
+
+.campo input:focus {
+    border-color: #d05714;
+    box-shadow: 0 0 5px rgba(208,87,20,.3);
+}
+
+/* ==========================================
+   6. BOTÕES (AÇÕES DO CADASTRO)
+   ========================================== */
+.acoes_cadastro {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn_cadastrar {
+    padding: 14px 60px;
+    border: none;
+    border-radius: 10px;
+    background: #2e7d32;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn_cadastrar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,.25);
+    background: #1b5e20;
+}
+
+.acoes_cadastro p {
+    color: #3a1c08;
+    margin: 20px 0 10px;
+}
+
+.btn_login {
+    padding: 10px 45px;
+    border: none;
+    border-radius: 10px;
+    background: #ffd54f;
+    color: #3a1c08;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn_login:hover {
+    background: #fbc02d;
+}
+
+/* ==========================================
+   7. RODAPÉ (FOOTER)
+   ========================================== */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 15px;
+    background: #3a1c08;
+    transform: translateY(100%);
+    transition: transform .3s ease;
+    z-index: 1000;
+}
+
+footer.mostrar {
+    transform: translateY(0);
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ==========================================
+   8. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================== */
+@media (max-width: 768px) {
+    .criar_cadastro {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    .formulario_cadastro {
+        flex-direction: column;
+    }
+
+    footer {
+        gap: 15px;
+    }
+
+    footer a {
+        font-size: 13px;
+    }
+}

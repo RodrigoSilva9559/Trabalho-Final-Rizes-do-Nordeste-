@@ -1,0 +1,116 @@
+/* ==========================================
+   ESTILOS DA HOME
+   ========================================== */
+
+/* Banner Principal */
+.banner {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    margin: 20px 5%;
+}
+
+.banner-texto {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.banner-texto:hover {
+    transform: translateY(-8px) scale(1.02); /* Correção de transformação combinada */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Vitrine de Produtos */
+.produtos {
+    padding: 40px 5%;
+}
+
+.produtos h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #1e293b;
+    border-left: 4px solid #3b82f6;
+    padding-left: 12px;
+}
+
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.card-produto {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.card-produto:hover {
+    transform: translateY(-4px);
+}
+
+/* Responsividade Mobile Corrigida */
+@media (max-width: 768px) {
+    header.cabecalho_site {
+        flex-direction: column;
+    }
+
+    .complemento_titulo,
+    .atendimento,
+    .carrinho_usuario {
+        display: none;
+    }
+
+    /* Fixa o menu nav no rodape ocupando toda a largura */
+    #nav-principal {
+        display: block !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        background: #3a1c08;
+        z-index: 9999;
+        padding: 10px 0;
+        border-top: 2px solid #ffd54f;
+    }
+
+    /* Organiza os links lado a lado distribuídos em 100% da tela */
+    #nav-principal .menu-lista {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Estilização individual dos botões */
+    #nav-principal .menu-lista a {
+        font-size: 11px;
+        padding: 5px 2px;
+        margin: 0;
+        text-align: center;
+        white-space: nowrap;
+        flex: 1;
+    }
+
+    .conteudo_flex {
+        flex-direction: column;
+    }
+
+    .container_contato {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    footer {
+        justify-content: space-around;
+        gap: 0;
+        padding-bottom: 60px; /* Garante espaço para o menu não cobrir o rodapé */
+    }
+
+    footer a {
+        font-size: 13px;
+    }
+}

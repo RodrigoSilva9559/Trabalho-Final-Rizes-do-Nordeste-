@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raízes do Nordeste</title>
+
+    <link rel="icon" type="image/svg+xml" href="./imagens/site/icone.svg">
+
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="cabecalho_site">
+        <div class="logo">
+            <a class="img" href="index.html">
+                <img src="./imagens/site/logo.png" alt="Voltar para a página inicial">
+            </a>
+        </div>
+
+        <div class="caixa_titulo">
+            <div class="titulo"> <!-- SUGESTÃO: Esta div .titulo é redundante pois já está dentro de .caixa_titulo. Pode ser removida no futuro mantendo o h1 e h2 direto em .caixa_titulo --> 
+                <h1>Raízes do Nordeste</h1>
+                <h2>o verdadeiro sabor nordestino</h2>
+            </div>
+        </div>
+        
+        <div class="complemento_titulo">
+            <div class="localizacao">
+                <a href="carrinho.html">
+                    <img src="./imagens/site/local (2).png" alt="Escolher unidade">
+                </a>
+                <p>Escolha sua unidade:</p>
+        
+                <select>
+                    <option>Camaquã</option>
+                    <option>Porto Alegre</option>
+                    <option>Pelotas</option>
+                </select>
+            </div>
+        
+        
+            <div class="atendimento">
+                <div class="horario">
+                    <a href="carrinho.html">
+                        <img src="./imagens/site/horario (2).png" alt="Horário de atendimento">
+                    </a>
+                    <p>Aberto<br>de terça a domingo<br>das 18h às 23h</p>
+                </div>
+            </div>
+
+
+            <div class="carrinho_usuario">
+                <div class="itens">
+                    <a href="carrinho.html">
+                        <img src="./imagens/site/carrinho.png" alt="Carrinho de Compras">
+                    </a>
+                    <p>Meu Carrinho</p>
+                </div>
+
+                <div class="itens">
+                    <a href="login_cadastro.html">
+                        <img src="./imagens/site/usuario.png" alt="Perfil do Usuário">
+                    </a>
+                    <p>Meu Perfil</p>
+                </div>
+            </div>
+         </div>
+    </header>
+
+    <!-- Navegação Principal -->
+    <nav id="nav-principal">
+        <div class="menu-lista">
+            <a href="index.html">🏠 HOME</a>
+            <a href="cardapio.html">📋 CARDÁPIO</a>
+            <a href="sobre.html">ℹ️ SOBRE NÓS</a>
+            <a href="contato.html">👤 CONTATO</a>
+        </div>
+    </nav>
+
+    <section class="carrossel">
+        <div class="slides">
+            <div class="slide ativo">
+                <img src="./imagens/site/banner_1.1png.png" alt="Promoção X-Burger">
+            </div>
+
+            <div class="slide">
+                <img src="./imagens/site/banner_2.2.png" alt="Promoção Bacon Burger">
+            </div>
+
+            <div class="slide">
+                <img src="./imagens/site/banner_3.3.png" alt="Promoção Chicken Burger">
+            </div>
+        </div>
+
+        <button class="seta anterior" onclick="mudarSlide(-1)">❮</button>
+        <button class="seta proximo" onclick="mudarSlide(1)">❯</button>
+
+        <div class="indicadores">
+            <span class="ponto ativo" onclick="irParaSlide(0)"></span>
+            <span class="ponto" onclick="irParaSlide(1)"></span>
+            <span class="ponto" onclick="irParaSlide(2)"></span>
+        </div>
+    </section>
+
+    <section class="categorias">
+        <h2>Categorias</h2>
+
+        <div class="area-categorias">
+            <div class="lista-categorias">
+                <div onclick="location.href='cardapio.html#hamburgueres'">
+                    <img src="./imagens/site/cate_hamburguer.png" alt="Hambúrgueres">
+                    <span>Hambúrgueres</span>
+                </div>
+
+                <div onclick="location.href='cardapio.html#porcoes'">
+                    <img src="./imagens/site/cate_porcao.png" alt="Porções">
+                    <span>Porções</span>
+                </div>
+
+                <div onclick="location.href='cardapio.html#bebidas'">
+                    <img src="./imagens/site/cate_bebida.png" alt="Bebidas">
+                    <span>Bebidas</span>
+                </div>
+
+                <div onclick="location.href='cardapio.html#sobremesas'">
+                    <img src="./imagens/site/cate_sobre.png" alt="Sobremesas">
+                    <span>Sobremesas</span>
+                </div>
+
+                <div onclick="location.href='cardapio.html#combos'">
+                    <img src="./imagens/site/cate_combo.png" alt="Combos">
+                    <span>Combos</span>
+                </div>
+            </div>
+
+            <div class="fidelidade">
+                <h2>⭐ Programa Fidelidade</h2>
+                <p>Você possui <br><strong>0</strong> pontos</p>
+                <button onclick="location.href='login_cadastro.html'">Login</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="caixa_mais_vendidas">
+        <h2>⭐ Mais Vendidos</h2>
+
+        <div class="area_mais_vendidos">
+            <div class="produtos">
+                <div id="listaProdutos" class="lista-mais-vendidos"></div>
+            </div>
+
+            <div class="vantagens">
+                <div class="entrega">
+                    <div>
+                        <img src="./imagens/site/entrega.png" alt="Entrega">
+                    </div>
+                    <div>
+                        <p>Entrega rápida</p>
+                        <span>Receba em casa com agilidade</span>
+                    </div>                
+                </div>
+
+                <div class="pagamento">
+                    <div>
+                        <img src="./imagens/site/pagamento.png" alt="Pagamento">
+                    </div>
+                    <div>
+                        <p>Pagamento seguro</p>
+                        <span>Seus dados protegidos</span>
+                    </div>                
+                </div>
+
+                <div class="qualidade">
+                    <div>
+                        <img src="./imagens/site/qualidade.png" alt="Qualidade">
+                    </div>
+                    <div>
+                        <p>Qualidade garantida</p>
+                        <span>Sempre o melhor para você</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <a href="index.html">🏠 HOME</a>
+        <a href="cardapio.html">📋 CARDÁPIO</a>
+        <a href="sobre.html">ℹ️ SOBRE NÓS</a>
+        <a href="contato.html">👤 CONTATO</a>
+    </footer>
+
+    <script src="global.js"></script>
+
+</body>
+
+</html>

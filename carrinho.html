@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho | Raízes do Nordeste</title>
+
+    <link rel="icon" type="image/svg+xml" href="./imagens/site/icone.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style_carrinho.css">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="cabecalho_site">
+        <div class="logo">
+            <a class="img" href="index.html">
+                <img src="./imagens/site/logo.png" alt="Voltar para a página inicial">
+            </a>
+        </div>
+
+        <div class="caixa_titulo">
+            <div class="titulo">
+                <h1>Raízes do Nordeste</h1>
+                <h2>o verdadeiro sabor nordestino</h2>
+            </div>
+        </div>
+        
+        <div class="complemento_titulo">
+            <div class="localizacao">
+                <!-- LIXO/DESNECESSÁRIO: Envolver a imagem de unidade num link para "carrinho.html" enquanto o usuário já está no carrinho -->
+                <a href="carrinho.html">
+                    <img src="./imagens/site/local (2).png" alt="Escolher unidade">
+                </a>
+                <p>Escolha sua unidade:</p>
+        
+                <select>
+                    <option>Camaquã</option>
+                    <option>Porto Alegre</option>
+                    <option>Pelotas</option>
+                </select>
+            </div>
+        
+        
+            <div class="atendimento">
+                <div class="horario">
+                    <!-- LIXO/DESNECESSÁRIO: Envolver a imagem de horário num link para "carrinho.html" sem função de navegação real -->
+                    <a href="carrinho.html">
+                        <img src="./imagens/site/horario (2).png" alt="Horário de atendimento">
+                    </a>
+                    <p>Aberto<br>de terça a domingo<br>das 18h às 23h</p>
+                </div>
+            </div>
+
+
+            <div class="carrinho_usuario">
+                <div class="itens">
+                    <!-- LIXO/DESNECESSÁRIO: Link para a própria página onde o usuário já se encontra -->
+                    <a href="carrinho.html">
+                        <img src="./imagens/site/carrinho.png" alt="Carrinho de Compras">
+                    </a>
+                    <p>Meu Carrinho</p>
+                </div>
+
+                <div class="itens">
+                    <a href="login_cadastro.html">
+                        <img src="./imagens/site/usuario.png" alt="Perfil do Usuário">
+                    </a>
+                    <p>Meu Perfil</p>
+                </div>
+            </div>
+         </div>
+    </header>
+
+    <!-- Navegação Principal -->
+    <nav id="nav-principal">
+        <div class="menu-lista">
+            <a href="index.html">🏠 HOME</a>
+            <a href="cardapio.html">📋 CARDÁPIO</a>
+            <a href="sobre.html">ℹ️ SOBRE NÓS</a>
+            <a href="contato.html">👤 CONTATO</a>
+        </div>
+    </nav>
+
+    <!-- CARRINHO -->
+    <main class="pagina_carrinho">
+
+        <div class="titulo_carrinho">
+            <h1>🛒 Meu Carrinho</h1>
+            <p>Confira seus produtos antes de finalizar o pedido.</p>
+        </div>
+
+        <div class="area_carrinho">
+
+            <!-- PRODUTOS RENDERIZADOS PELO JAVASCRIPT -->
+            <section class="produtos_carrinho" id="lista_carrinho">
+                <h2>Seus produtos</h2>
+            </section>
+
+            <!-- RESUMO -->
+            <aside class="resumo_pedido">
+                <h2>Resumo do pedido</h2>
+
+                <div class="linha_resumo">
+                    <span>Subtotal</span>
+                    <strong id="subtotal_valor">R$ 0,00</strong>
+                </div>
+
+                <div class="linha_resumo">
+                    <span>Entrega</span>
+                    <strong id="taxa_entrega">R$ 5,00</strong>
+                </div>
+
+                <hr>
+
+                <div class="total">
+                    <span>Total</span>
+                    <strong id="valor_total">R$ 0,00</strong>
+                </div>
+
+                <button class="btn_finalizar" onclick="location.href='pedido.html'">
+                    FINALIZAR PEDIDO
+                </button>
+
+                <button class="btn_continuar" onclick="location.href='cardapio.html'">
+                    CONTINUAR COMPRANDO
+                </button>
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="global.js"></script>
+    <script src="carrinho.js"></script>
+
+</body>
+
+</html>

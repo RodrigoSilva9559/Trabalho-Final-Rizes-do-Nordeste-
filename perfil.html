@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil | Raízes do Nordeste</title>
+
+    <link rel="icon" type="image/svg+xml" href="./imagens/site/icone.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style_perfil.css">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="cabecalho_site">
+        <div class="logo">
+            <a class="img" href="index.html">
+                <img src="./imagens/site/logo.png" alt="Voltar para a página inicial">
+            </a>
+        </div>
+
+        <div class="caixa_titulo">
+            <div class="titulo">
+                <h1>Raízes do Nordeste</h1>
+                <h2>o verdadeiro sabor nordestino</h2>
+            </div>
+        </div>
+        
+        <div class="complemento_titulo">
+            <div class="localizacao">
+                <!-- LIXO/DESNECESSÁRIO: Envolver a imagem de unidade num link para "carrinho.html" que não leva à seleção de unidade -->
+                <a href="carrinho.html">
+                    <img src="./imagens/site/local (2).png" alt="Escolher unidade">
+                </a>
+                <p>Escolha sua unidade:</p>
+        
+                <select>
+                    <option>Camaquã</option>
+                    <option>Porto Alegre</option>
+                    <option>Pelotas</option>
+                </select>
+            </div>
+        
+        
+            <div class="atendimento">
+                <div class="horario">
+                    <!-- LIXO/DESNECESSÁRIO: Envolver a imagem de horário num link para "carrinho.html" sem função de navegação real -->
+                    <a href="carrinho.html">
+                        <img src="./imagens/site/horario (2).png" alt="Horário de atendimento">
+                    </a>
+                    <p>Aberto<br>de terça a domingo<br>das 18h às 23h</p>
+                </div>
+            </div>
+
+
+            <div class="carrinho_usuario">
+                <div class="itens">
+                    <a href="carrinho.html">
+                        <img src="./imagens/site/carrinho.png" alt="Carrinho de Compras">
+                    </a>
+                    <p>Meu Carrinho</p>
+                </div>
+
+                <div class="itens">
+                    <!-- LIXO/DESNECESSÁRIO: Link para "login_cadastro.html" no ícone de perfil enquanto o usuário já está na página de perfil -->
+                    <a href="login_cadastro.html">
+                        <img src="./imagens/site/usuario.png" alt="Perfil do Usuário">
+                    </a>
+                    <p>Meu Perfil</p>
+                </div>
+            </div>
+         </div>
+    </header>
+
+    <!-- Navegação Principal -->
+    <nav id="nav-principal">
+        <div class="menu-lista">
+            <a href="index.html">🏠 HOME</a>
+            <a href="cardapio.html">📋 CARDÁPIO</a>
+            <a href="sobre.html">ℹ️ SOBRE NÓS</a>
+            <a href="contato.html">👤 CONTATO</a>
+        </div>
+    </nav>
+
+    <!-- ================= PERFIL ================= -->
+    <main class="pagina_perfil">
+
+        <div class="titulo_pagina">
+            <h1><span id="titulo_nome_usuario">MEU PERFIL</span></h1>
+            <h2>Gerencie sua conta e seus pedidos</h2>
+        </div>
+
+        <!-- ================= DADOS DO USUÁRIO ================= -->
+        <section class="perfil_card">
+            <div class="icone_perfil">
+                <img src="./imagens/site/usuario.png" alt="Ícone do usuário">
+            </div>
+
+            <h3>Meu Perfil</h3>
+
+            <div class="dados_usuario">
+                <p><strong>Nome:</strong> <span id="perfil_nome">Rodrigo Silva</span></p>
+                <p><strong>E-mail:</strong> <span id="perfil_email">rodrigo@email.com</span></p>
+                <p><strong>Celular:</strong> <span id="perfil_celular">(51) 99999-9999</span></p>
+            </div>
+
+            <button type="button" id="btn_editar_dados" onclick="location.href='cadastro.html'">
+                ✏️ Editar meus dados
+            </button>
+        </section>
+
+        <!-- ================= PEDIDOS ================= -->
+        <section class="perfil_card">
+            <div class="icone_card">📦</div>
+
+            <h3>Meus Pedidos</h3>
+            <!-- LIXO/DESNECESSÁRIO: Estilos inline (margin-bottom, font-weight, color) poderiam estar no arquivo CSS -->
+            <p style="margin-bottom: 15px; font-weight: 500;">
+                Total de pedidos realizados: <strong id="total_pedidos_contador" style="color: #d05714;">0</strong>
+            </p>
+
+            <!-- Lista dinâmica onde os pedidos salvos no localStorage serão inseridos -->
+            <div id="lista_pedidos_usuario" class="lista_pedidos">
+                <p class="sem_pedidos">Buscando histórico...</p>
+            </div>
+        </section>
+
+        <!-- ================= FIDELIDADE ================= -->
+        <section class="perfil_card fidelidade">
+            <div class="icone_card">⭐</div>
+
+            <h3>Programa de Fidelidade</h3>
+
+            <p>Você possui <strong id="saldo_pontos_perfil">0 pontos</strong></p>
+
+            <div class="barra_fidelidade">
+                <!-- LIXO/DESNECESSÁRIO: Estilo inline (width: 0%) que será sobrescrito pelo JavaScript -->
+                <div class="progresso" id="barra_progresso_fidelidade" style="width: 0%;"></div>
+            </div>
+
+            <p class="pontos" id="texto_metas_pontos">0 / 200 pontos</p>
+
+            <p class="dica_fidelidade">
+                Continue fazendo pedidos para ganhar mais pontos!
+            </p>
+        </section>
+
+        <!-- ================= SAIR ================= -->
+        <button type="button" class="botao_sair" onclick="fazerLogout()">
+            🚪 Sair da conta
+        </button>
+
+    </main>
+
+    <script src="global.js"></script>
+    <script src="perfil.js"></script>
+
+</body>
+
+</html>

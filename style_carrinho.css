@@ -1,0 +1,636 @@
+/* ==========================================
+   1. RESET E ESTILOS GERAIS
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    background: #f3eee5;
+    padding-bottom: 90px;
+}
+
+/* ==========================================
+   2. CABEÇALHO DO SITE (HEADER)
+   ========================================== */
+header.cabecalho_site {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #d05714;
+}
+
+/* Logo */
+.logo {
+    padding: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 0 #8D5A00, 0 2px 2px rgba(0,0,0,.4);
+    transition: .3s;
+}
+
+.logo img:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+/* Título */
+.caixa_titulo {
+    flex: 1;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Lilita One', cursive;
+    font-size: clamp(36px, 5vw, 70px);
+    color: white;
+    -webkit-text-stroke: 3px #5a2b0f;
+    text-shadow: 1px 1px 0 #c85b16, 14px 1px 10px rgba(0,0,0,.35);
+}
+
+header h2 {
+    font-family: 'Lilita One', cursive;
+    color: #ffd54f;
+    font-weight: normal;
+}
+
+/* Complemento do Título (Unidade / Horário / Carrinho) */
+.complemento_titulo {
+    display: flex !important; /* LIXO/DESNECESSÁRIO: Uso de !important no código Desktop genérico */
+    flex-direction: row !important; /* LIXO/DESNECESSÁRIO: !important redundante fora de media query */
+    align-items: center !important; /* LIXO/DESNECESSÁRIO: !important redundante */
+    justify-content: space-around !important; /* LIXO/DESNECESSÁRIO: !important redundante */
+    flex: 1 !important; /* LIXO/DESNECESSÁRIO: !important redundante */
+    margin-top: 15px;
+    padding: 10px 0;
+}
+
+.complemento_titulo p{
+    color: white;
+}
+.horario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.localizacao img, .horario img {
+    width: 60px;
+    height: auto;
+}
+
+.complemento_titulo select {
+    background: #ffd54f;
+    border: 3px solid #5a2b0f;
+    border-radius: 10px;
+    padding: 2px 6px;
+}
+
+.atendimento {
+    padding: 20px;
+}
+
+.carrinho_usuario {
+    display: flex;
+    gap: 20px;
+    padding: 35px 10px 0;
+    text-align: center;
+}
+
+.itens {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.itens img {
+    width: 60px;
+    height: auto;
+    background: linear-gradient(to bottom, #FFE082, #F9A825);
+    border: 3px solid #4E342E;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 5px 0 #7A4E00, 0 8px 18px rgba(0,0,0,.3);
+    transition: .25s;
+}
+
+.itens img:hover {
+    transform: translateY(-4px) scale(1.08);
+}
+
+.itens p {
+    color: white;
+    font-weight: bold;
+}
+
+/* ==========================================
+   3. MENU DE NAVEGAÇÃO PRINCIPAL (NAV)
+   ========================================== */
+nav {
+    display: flex;
+    justify-content: center;
+    background: #3a1c08;
+    padding: 15px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
+    margin: 5px 12px;
+    position: relative;
+    transition: .3s;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 5px;
+    background: #FFD54F;
+    transition: .3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================
+   4. ESTRUTURA PRINCIPAL DA PÁGINA CARRINHO
+   ========================================== */
+.pagina_carrinho {
+    max-width: 1400px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.titulo_carrinho {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo_carrinho h1 {
+    font-family: 'Lilita One', cursive;
+    font-size: 45px;
+    color: #4E342E;
+}
+
+.titulo_carrinho p {
+    color: #4E342E;
+}
+
+.area_carrinho {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+/* ==========================================
+   5. LISTAGEM DE PRODUTOS
+   ========================================== */
+.produtos_carrinho {
+    background: #FAF0DC;
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid #3a1c08;
+    box-shadow: 0 5px 15px rgba(0,0,0,.15);
+}
+
+.produtos_carrinho > h2 {
+    font-family: 'Lilita One', cursive;
+    color: #4E342E;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+/* LIXO/DESNECESSÁRIO: As classes .produto_carrinho, .produto_imagem e .produto_info abaixo não existem no HTML estático nem na renderização via JS se for usada estrutura diferente */
+.produto_carrinho {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 8px rgba(0,0,0,.15);
+    transition: transform .2s;
+}
+
+.produto_imagem {
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.produto_imagem img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.produto_info {
+    flex: 1;
+}
+
+.produto_info h3 {
+    font-family: 'Lilita One', cursive;
+    font-size: 24px;
+    color: #4E342E;
+}
+
+.produto_info p {
+    color: #555;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.produto_info strong {
+    color: #2e7d32;
+    font-size: 20px;
+}
+
+/* Controles de Quantidade e Exclusão */
+/* LIXO/DESNECESSÁRIO: Classes .quantidade e .remover não constam no HTML fornecido */
+.quantidade {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.quantidade button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: #ffd54f;
+    color: #3a1c08;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.quantidade button:hover {
+    background: #fbc02d;
+}
+
+.quantidade span {
+    font-weight: bold;
+    font-size: 16px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.remover {
+    border: none;
+    background: none;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform .2s;
+}
+
+.remover:hover {
+    transform: scale(1.2);
+}
+
+/* ==========================================
+   6. RESUMO DO PEDIDO (ASIDE)
+   ========================================== */
+.resumo_pedido {
+    background: #3a1c08;
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+}
+
+.resumo_pedido h2 {
+    font-family: 'Lilita One', cursive;
+    color: #ffd54f;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.linha_resumo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.resumo_pedido hr {
+    border: none;
+    border-top: 1px solid #806040;
+    margin: 20px 0;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.total strong {
+    color: #ffd54f;
+    font-size: 28px;
+}
+
+.btn_finalizar {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #2e7d32;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #1b5e20;
+    margin-bottom: 15px;
+    transition: background .3s, transform .1s;
+}
+
+.btn_finalizar:hover {
+    background: #1b5e20;
+    transform: translateY(-2px);
+}
+
+.btn_continuar {
+    width: 100%;
+    padding: 13px;
+    border: 2px solid #ffd54f;
+    border-radius: 10px;
+    background: transparent;
+    color: #ffd54f;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background .3s, color .3s;
+}
+
+.btn_continuar:hover {
+    background: #ffd54f;
+    color: #3a1c08;
+}
+
+/* ==========================================
+   7. RODAPÉ (FOOTER)
+   ========================================== */
+/* LIXO/DESNECESSÁRIO: Não há elemento <footer> no arquivo HTML desta página */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 15px;
+    background: #3a1c08;
+    z-index: 1000;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0 15px;
+    text-align: center;
+}
+
+/* ==========================================
+   8. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================== */
+@media (max-width: 768px) {
+    /* Header Mobile */
+    header.cabecalho_site {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 5px;
+        gap: 8px;
+    }
+
+    .logo {
+        padding: 5px 0 0 0;
+        border: none;
+    }
+
+    .logo img {
+        width: 50px;
+    }
+
+    .caixa_titulo h1 {
+        font-size: 26px !important;
+        -webkit-text-stroke: 1px #5a2b0f;
+        white-space: nowrap;
+    }
+
+    .caixa_titulo h2 {
+        font-size: 13px !important;
+    }
+
+    /* Complementos Header Mobile */
+    .complemento_titulo {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        align-items: flex-start !important;
+        width: 100% !important;
+        padding: 5px 10px !important;
+        gap: 10px !important;
+    }
+
+    .localizacao {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 2px !important;
+        font-size: 11px !important;
+        padding-left: 0 !important;
+    }
+
+    .localizacao p {
+        font-size: 11px !important;
+    }
+
+    .horario {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 6px !important;
+        font-size: 10px !important;
+    }
+
+    .complemento_titulo img,
+    .atendimento img {
+        width: 30px !important;
+    }
+
+    .complemento_titulo select {
+        font-size: 11px !important;
+        padding: 2px 4px !important;
+    }
+
+    /* Carrinho e Perfil Mobile */
+    .carrinho_usuario {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 20px !important;
+        padding: 5px 0 !important;
+    }
+
+    .itens img {
+        width: 35px !important;
+        padding: 4px !important;
+    }
+
+    .itens p {
+        font-size: 11px !important;
+    }
+
+    /* Estrutura Mobile do Carrinho */
+    .pagina_carrinho {
+        padding: 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin-bottom: 70px !important;
+    }
+
+    .titulo_carrinho {
+        text-align: center !important;
+        margin-bottom: 15px !important;
+    }
+
+    .titulo_carrinho h1 {
+        font-size: 22px !important;
+    }
+
+    .titulo_carrinho p {
+        font-size: 13px !important;
+    }
+
+    .area_carrinho {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        gap: 15px !important;
+    }
+
+    .produtos_carrinho {
+        width: 100% !important;
+        background: #FAF0DC;
+        border-radius: 12px;
+        border: 2px solid #3a1c08;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        padding: 12px !important;
+        box-sizing: border-box !important;
+    }
+
+    .produtos_carrinho h2 {
+        font-size: 16px !important;
+        margin-bottom: 10px !important;
+        text-align: center;
+    }
+
+    /* Cards de Produtos Mobile */
+    /* LIXO/DESNECESSÁRIO: Classes .item_carrinho, .produto_item, .detalhes, .controles não foram declaradas no HTML fornecido */
+    .item_carrinho, 
+    .produto_item {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 10px !important;
+        border-bottom: 1px dashed #3a1c08;
+        gap: 8px !important;
+    }
+
+    .item_carrinho img,
+    .produto_item img {
+        width: 60px !important;
+        height: 60px !important;
+        object-fit: cover;
+    }
+
+    .item_carrinho .detalhes,
+    .produto_item .detalhes {
+        width: 100% !important;
+        font-size: 13px !important;
+    }
+
+    .item_carrinho .controles,
+    .produto_item .controles {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+
+    /* Navegação Inferior Mobile */
+    #nav-principal {
+        display: block !important;
+        visibility: visible !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        background: #3a1c08 !important;
+        z-index: 99999 !important;
+        padding: 8px 0 !important;
+        border-top: 2px solid #ffd54f !important;
+        box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #nav-principal .menu-lista {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #nav-principal .menu-lista a {
+        font-size: 11px !important;
+        padding: 4px 2px !important;
+        margin: 0 !important;
+        text-align: center !important;
+        flex: 1 !important;
+        color: #ffffff !important;
+        display: block !important;
+    }
+
+    #nav-principal .menu-lista a::after {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1024px){ 
+    .caixa_titulo h1 {
+        white-space: nowrap;
+    }
+}

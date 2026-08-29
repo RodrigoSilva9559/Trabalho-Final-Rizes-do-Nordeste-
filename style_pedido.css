@@ -1,0 +1,872 @@
+/* ==========================================
+   1. RESET GLOBAL E BASE
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    background: #f3eee5;
+    padding-bottom: 90px;
+}
+
+/* ==========================================
+   2. CABEÇALHO DO SITE (HEADER)
+   ========================================== */
+/* LIXO/DESNECESSÁRIO: No HTML a tag é <header class="cabecalho_site">, o seletor 'header' funciona, mas diverge do padrão utilizado na media query 'header.cabecalho_site' */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #d05714;
+}
+
+.logo {
+    padding: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 0 #8D5A00, 0 2px 2px rgba(0,0,0,.4);
+    transition: .3s;
+}
+
+.logo img:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+.caixa_titulo {
+    flex: 1;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Lilita One', cursive;
+    font-size: clamp(36px, 5vw, 70px);
+    color: white;
+    -webkit-text-stroke: 3px #5a2b0f;
+    text-shadow: 1px 1px 0 #c85b16, 14px 1px 10px rgba(0,0,0,.35);
+}
+
+header h2 {
+    font-family: 'Lilita One', cursive;
+    color: #ffd54f;
+    font-weight: normal;
+}
+
+.complemento_titulo {
+    display: flex !important; /* LIXO/DESNECESSÁRIO: Uso de !important no layout Desktop padrão */
+    flex-direction: row !important; /* LIXO/DESNECESSÁRIO: !important redundante fora de media query */
+    align-items: center !important; /* LIXO/DESNECESSÁRIO: !important redundante */
+    justify-content: space-around !important; /* Espaça a unidade e o horário entre si */
+    flex: 1 !important; /* Ocupa todo o espaço até encostar na caixa preta */
+    margin-top: 15px;
+    padding: 10px 0;
+}
+
+.localizacao {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.localizacao img {
+    width: 60px;
+    height: auto;
+}
+
+.complemento_titulo select {
+    background: #ffd54f;
+    border: 3px solid #5a2b0f;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.atendimento {
+    padding: 20px;
+}
+
+.horario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.horario img {
+    width: 60px;
+    height: auto;
+}
+
+.carrinho_usuario {
+    display: flex;
+    gap: 20px;
+    padding: 35px 10px 0;
+    text-align: center;
+}
+
+.itens {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.itens img {
+    width: 60px;
+    height: auto;
+    background: linear-gradient(to bottom, #FFE082, #F9A825);
+    border: 3px solid #4E342E;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 5px 0 #7A4E00, 0 8px 18px rgba(0,0,0,.3);
+    transition: .25s;
+}
+
+.itens img:hover {
+    transform: translateY(-4px) scale(1.08);
+}
+
+.itens p {
+    color: white;
+    font-weight: bold;
+}
+
+/* LIXO/DESNECESSÁRIO: A classe .menu-mobile não existe na estrutura HTML fornecida */
+.menu-mobile {
+    display: none;
+}
+
+/* ==========================================
+   3. MENU DE NAVEGAÇÃO PRINCIPAL (NAV)
+   ========================================== */
+nav {
+    display: flex;
+    justify-content: center;
+    background: #3a1c08;
+    padding: 15px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0 10px;
+    margin: 5px 12px;
+    position: relative;
+    transition: .3s;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 5px;
+    background: #FFD54F;
+    transition: .3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================
+   4. ESTRUTURA PRINCIPAL E TÍTULOS DA PÁGINA
+   ========================================== */
+.pagina_pedido {
+    max-width: 1300px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.titulo_pedido {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo_pedido h1 {
+    font-family: 'Lilita One', cursive;
+    font-size: 45px;
+    color: #4E342E;
+}
+
+.titulo_pedido p {
+    color: #3a1c08;
+}
+
+.area_pedido {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+/* ==========================================
+   5. FORMULÁRIO E DADOS DO PEDIDO
+   ========================================== */
+.caixa_pedido {
+    background: #FAF0DC;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #e0d0b0;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+}
+
+.caixa_pedido h2 {
+    font-family: 'Lilita One', cursive;
+    color: #4E342E;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Campos de Texto e Inputs */
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 15px;
+    flex: 1;
+}
+
+.campo label {
+    font-weight: 600;
+    color: #4E342E;
+    font-size: 14px;
+}
+
+.campo input {
+    padding: 12px;
+    border: 2px solid #d6c7ae;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    background: white;
+    transition: border-color .3s;
+}
+
+.campo input:focus {
+    border-color: #d05714;
+}
+
+.linha_campos {
+    display: flex;
+    gap: 15px;
+}
+
+.campo_maior {
+    flex: 2;
+}
+
+/* Opções de Forma de Pagamento */
+.opcao_pagamento {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    margin-bottom: 10px;
+    background: white;
+    border: 2px solid #d6c7ae;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+}
+
+.opcao_pagamento:hover {
+    background: #fff3cd;
+    border-color: #d05714;
+}
+
+.opcao_pagamento input {
+    width: 18px;
+    height: 18px;
+    accent-color: #d05714;
+}
+
+.opcao_pagamento span {
+    color: #4E342E;
+    font-weight: 600;
+}
+
+/* Campo de Observação */
+textarea {
+    width: 100%;
+    min-height: 120px;
+    resize: vertical;
+    border: 2px solid #d6c7ae;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color .3s;
+}
+
+textarea:focus {
+    border-color: #d05714;
+}
+
+/* ==========================================
+   6. RESUMO DO PEDIDO E FIDELIDADE (ASIDE)
+   ========================================== */
+.resumo_pedido {
+    background: #3a1c08;
+    padding: 25px;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    position: sticky;
+    top: 20px;
+}
+
+.resumo_pedido h2 {
+    font-family: 'Lilita One', cursive;
+    color: #ffd54f;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+/* LIXO/DESNECESSÁRIO: Duplicidade de declaração de .produto_resumo (redefinida mais abaixo com flexbox centralizado) */
+.produto_resumo {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.produto_resumo div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.produto_resumo strong {
+    color: white;
+}
+
+.produto_resumo span {
+    color: #d6c7ae;
+    font-size: 14px;
+}
+
+.resumo_pedido hr {
+    border: none;
+    border-top: 1px solid #806040;
+    margin: 20px 0;
+}
+
+.linha_resumo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.total strong {
+    color: #ffd54f;
+    font-size: 28px;
+}
+
+/* Bloco de Fidelidade e Resgate */
+.caixa_fidelidade {
+    background-color: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.caixa_fidelidade h3 {
+    margin-top: 0;
+    color: #d84315;
+    font-size: 1.1rem;
+}
+
+.caixa_fidelidade p {
+    margin-top: 0;
+    color: #d84315;
+    font-size: 1.1rem;
+}
+
+.opcao_resgate {
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.opcao_resgate input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* Layout dinâmico inserido via JS no resumo */
+#lista_resumo_produtos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* LIXO/DESNECESSÁRIO: Segunda declaração da classe .produto_resumo, sobrescrevendo a anterior */
+.produto_resumo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.produto_resumo div {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.produto_resumo span {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+/* Botões do Resumo */
+.btn_confirmar {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #2e7d32;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #1b5e20;
+    margin-bottom: 15px;
+    transition: background .3s, transform .2s;
+}
+
+.btn_confirmar:hover {
+    background: #1b5e20;
+    transform: translateY(-2px);
+}
+
+.btn_confirmar:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 #1b5e20;
+}
+
+.btn_voltar {
+    width: 100%;
+    padding: 13px;
+    border: 2px solid #ffd54f;
+    border-radius: 10px;
+    background: transparent;
+    color: #ffd54f;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background .3s, color .3s;
+}
+
+.btn_voltar:hover {
+    background: #ffd54f;
+    color: #3a1c08;
+}
+
+/* ==========================================
+   7. MODAIS DE PAGAMENTO (PIX E CARTÃO)
+   ========================================== */
+.modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal_conteudo {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.modal_conteudo h2 {
+    font-family: 'Lilita One', cursive;
+    color: #4E342E;
+    margin-bottom: 10px;
+}
+
+.modal_conteudo p {
+    color: #3a1c08;
+    font-size: 15px;
+}
+
+.qrcode_container img {
+    margin: 20px 0;
+    border: 3px solid #d05714;
+    border-radius: 12px;
+    padding: 10px;
+    background: #fff;
+    height: 200px;
+    width: 200px;
+}
+
+.timer_info {
+    font-size: 0.85em !important;
+    color: #888 !important;
+    font-style: italic;
+}
+
+.icone_sucesso {
+    font-size: 50px;
+    color: #2e7d32;
+    background-color: #e8f5e9;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 15px auto;
+}
+
+/* Campos do Modal de Cartão */
+.campo_cartao {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.campo_cartao label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4E342E;
+    margin-bottom: 4px;
+}
+
+.campo_cartao input {
+    padding: 10px;
+    border: 2px solid #d6c7ae;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+.campo_cartao input:focus {
+    border-color: #d05714;
+}
+
+.linha_campos_cartao {
+    display: flex;
+    gap: 10px;
+}
+
+.linha_campos_cartao .campo_cartao {
+    flex: 1;
+}
+
+.botoes_cartao {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.btn_confirmar_cartao {
+    background: #2e7d32;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.btn_confirmar_cartao:hover {
+    background: #1b5e20;
+}
+
+.btn_cancelar_cartao {
+    background: transparent;
+    color: #c62828;
+    border: 1px solid #c62828;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn_cancelar_cartao:hover {
+    background: #ffebee;
+}
+
+/* ==========================================
+   8. RODAPÉ (FOOTER)
+   ========================================== */
+/* LIXO/DESNECESSÁRIO: Não há tag <footer> presente no arquivo HTML desta página */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #3a1c08;
+    padding: 15px 0;
+    z-index: 1000;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0 15px;
+    text-align: center;
+    transition: color .3s;
+}
+
+footer a:hover {
+    color: #ffd54f;
+}
+
+/* ==========================================
+   9. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================== */
+@media (max-width: 900px) {
+    .area_pedido {
+        grid-template-columns: 1fr;
+    }
+
+    .resumo_pedido {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Estrutura Base */
+    body {
+        padding-bottom: 70px;
+    }
+
+    .pagina_pedido {
+        padding: 15px 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .titulo_pedido h1 {
+        font-size: 28px !important;
+    }
+
+    /* Área do Pedido */
+    .area_pedido {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 15px !important;
+        border: none !important;
+    }
+
+    .dados_pedido {
+        width: 100% !important;
+    }
+
+    /* Caixas e Campos */
+    .caixa_pedido {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        padding: 15px !important;
+        box-sizing: border-box !important;
+        margin-bottom: 15px !important;
+    }
+
+    .caixa_pedido h2 {
+        font-size: 20px !important;
+    }
+
+    .linha_campos {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+        width: 100% !important;
+    }
+
+    .campo, .campo_maior {
+        width: 100% !important;
+        margin-bottom: 12px !important;
+    }
+
+    .campo input, 
+    textarea {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        font-size: 14px !important;
+    }
+
+    /* Resumo do Pedido Mobile */
+    .resumo_pedido {
+        width: 100% !important;
+        position: static !important;
+        padding: 15px !important;
+        box-sizing: border-box !important;
+    }
+
+    .resumo_pedido h2 {
+        font-size: 22px !important;
+    }
+
+    /* Cabeçalho Compacto Mobile */
+    header.cabecalho_site {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 5px;
+        gap: 8px;
+    }
+
+    .logo {
+        padding: 5px 0 0 0;
+        border: none;
+    }
+
+    .logo img {
+        width: 50px;
+    }
+
+    .caixa_titulo {
+        border: none;
+    }
+
+    .caixa_titulo h1 {
+        font-size: 26px !important;
+        -webkit-text-stroke: 1px #5a2b0f;
+        white-space: nowrap;
+    }
+
+    .caixa_titulo h2 {
+        font-size: 13px !important;
+    }
+
+    .complemento_titulo {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        align-items: flex-start !important;
+        width: 100% !important;
+        padding: 5px 10px !important;
+        gap: 10px !important;
+    }
+
+    .localizacao {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 2px !important;
+        font-size: 11px !important;
+        padding-left: 0 !important;
+    }
+
+    .localizacao p {
+        font-size: 11px !important;
+    }
+
+    .horario {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 6px !important;
+        font-size: 10px !important;
+    }
+
+    .complemento_titulo img,
+    .atendimento img {
+        width: 30px !important;
+    }
+
+    .complemento_titulo select {
+        font-size: 11px !important;
+        padding: 2px 4px !important;
+    }
+
+    .carrinho_usuario {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 20px !important;
+        padding: 5px 0 !important;
+    }
+
+    .itens img {
+        width: 35px !important;
+        padding: 4px !important;
+    }
+
+    .itens p {
+        font-size: 11px !important;
+    }
+
+    /* Menu Fixo Inferior Mobile */
+    #nav-principal {
+        display: block !important;
+        visibility: visible !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        background: #3a1c08 !important;
+        z-index: 99999 !important;
+        padding: 8px 0 !important;
+        border-top: 2px solid #ffd54f !important;
+        box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #nav-principal .menu-lista {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #nav-principal .menu-lista a {
+        font-size: 11px !important;
+        padding: 4px 2px !important;
+        margin: 0 !important;
+        text-align: center !important;
+        flex: 1 !important;
+        color: #ffffff !important;
+        display: block !important;
+    }
+
+    #nav-principal .menu-lista a::after {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1024px){ 
+    .caixa_titulo h1 {
+        white-space: nowrap;
+    }
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Cadastro | Raízes do Nordeste</title>
+
+    <link rel="icon" type="image/svg+xml" href="./imagens/site/icone.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style_login_cadastro.css">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="cabecalho_site">
+        <div class="logo">
+            <a class="img" href="index.html">
+                <img src="./imagens/site/logo.png" alt="Voltar para a página inicial">
+            </a>
+        </div>
+
+        <div class="caixa_titulo">
+            <div class="titulo">
+                <h1>Raízes do Nordeste</h1>
+                <h2>o verdadeiro sabor nordestino</h2>
+            </div>
+        </div>
+        
+        <div class="complemento_titulo">
+            <div class="localizacao">
+                <!-- LIXO/DESNECESSÁRIO: A tag <a> com href="carrinho.html" em volta da imagem de localização não tem função lógica para trocar de unidade -->
+                <a href="carrinho.html">
+                    <img src="./imagens/site/local (2).png" alt="Escolher unidade">
+                </a>
+                <p>Escolha sua unidade:</p>
+        
+                <select>
+                    <option>Camaquã</option>
+                    <option>Porto Alegre</option>
+                    <option>Pelotas</option>
+                </select>
+            </div>
+        
+        
+            <div class="atendimento">
+                <div class="horario">
+                    <!-- LIXO/DESNECESSÁRIO: A tag <a> com href="carrinho.html" em volta do ícone de horário redireciona pro carrinho sem necessidade -->
+                    <a href="carrinho.html">
+                        <img src="./imagens/site/horario (2).png" alt="Horário de atendimento">
+                    </a>
+                    <p>Aberto<br>de terça a domingo<br>das 18h às 23h</p>
+                </div>
+            </div>
+
+
+            <div class="carrinho_usuario">
+                <div class="itens">
+                    <a href="carrinho.html">
+                        <img src="./imagens/site/carrinho.png" alt="Carrinho de Compras">
+                    </a>
+                    <p>Meu Carrinho</p>
+                </div>
+
+                <div class="itens">
+                    <a href="login_cadastro.html">
+                        <img src="./imagens/site/usuario.png" alt="Perfil do Usuário">
+                    </a>
+                    <p>Meu Perfil</p>
+                </div>
+            </div>
+         </div>
+    </header>
+
+    <!-- Navegação Principal -->
+    <nav id="nav-principal">
+        <div class="menu-lista">
+            <a href="index.html">🏠 HOME</a>
+            <a href="cardapio.html">📋 CARDÁPIO</a>
+            <a href="sobre.html">ℹ️ SOBRE NÓS</a>
+            <a href="contato.html">👤 CONTATO</a>
+        </div>
+    </nav>
+
+    <main class="container_login">
+        <section class="login_cadastro">
+            <h2>👤 Login / Cadastro</h2>
+            <p>Faça login ou cadastre-se para aproveitar todos os benefícios do nosso programa de fidelidade.</p>
+
+            <div class="escolha">
+                <!-- Bloco de Login -->
+                <form class="caixa_esquerda" action="#" method="POST">
+                    <h3>Login</h3>
+                    <div class="campo">
+                        <input type="email" id="email_login" name="email" placeholder="E-mail" required>
+                        <input type="password" id="senha_login" name="senha" placeholder="Senha" required>
+                    </div>
+                    <button type="submit">Entrar</button>
+                </form>
+
+                <!-- Bloco de Cadastro -->
+                <!-- LIXO/DESNECESSÁRIO: Este formulário tem botão tipo 'button' que redireciona via JavaScript. A tag <form> aqui é redundante se não há envio de dados direto -->
+                <form class="caixa_direita" action="#" method="POST">
+                    <h3>Cadastro</h3>
+                    <div class="campo">
+                        <!-- LIXO/DESNECESSÁRIO: Os campos de entrada de Nome e E-mail aqui são apenas visuais, pois o clique no botão redireciona para cadastro.html sem enviar esses dados -->
+                        <input type="text" id="nome_usuario_cadastro" name="novo_usuario" placeholder="Nome" required>
+                        <input type="email" id="email_usuario" name="email" placeholder="E-mail" required>
+                    </div>
+                    <button type="button" onclick="location.href='cadastro.html'">Criar Cadastro</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL DE TERMOS LGPD -->
+<div id="modal_lgpd" class="modal_lgpd_overlay" style="display: none;">
+    <div class="modal_lgpd_conteudo">
+        <h2>🔒 Termos de Privacidade e Proteção de Dados (LGPD)</h2>
+        <p class="subtitulo_lgpd">Por favor, leia os termos até o final para continuar.</p>
+        
+        <div id="caixa_texto_lgpd" class="caixa_texto_lgpd">
+            <h3>Termo de Consentimento para Tratamento de Dados Pessoais</h3>
+            <p>Em conformidade com a <strong>Lei Geral de Proteção de Dados Pessoais (LGPD - Lei nº 13.709/2018)</strong>, ao utilizar a plataforma do restaurante <em>Raízes do Nordeste</em>, você concorda com a coleta e o processamento dos seus dados pessoais nos seguintes termos:</p>
+            
+            <h4>1. Coleta de Dados</h4>
+            <p>Coletamos informações como nome completo, e-mail, telefone, endereço de entrega e histórico de pedidos para garantir a correta prestação dos serviços de entrega e atendimento.</p>
+            
+            <h4>2. Finalidade do Tratamento</h4>
+            <p>Os dados coletados serão utilizados exclusivamente para: processamento e entrega de pedidos, comunicação sobre o status do pedido, gerenciamento de saldo no Programa de Fidelidade e melhorias na navegação da plataforma.</p>
+            
+            <h4>3. Armazenamento e Segurança</h4>
+            <p>Seus dados são armazenados temporariamente no ambiente local do seu navegador (<em>localStorage</em>) e não serão compartilhados, vendidos ou repassados a terceiros sem autorização prévia.</p>
+            
+            <h4>4. Seus Direitos</h4>
+            <p>Você tem o direito de solicitar a alteração, correção ou exclusão dos seus dados da nossa base local a qualquer momento através da seção "Meu Perfil" ou entrando em contato com o suporte do restaurante.</p>
+            
+            <p><strong>Para prosseguir, role esta caixa de texto até o final para ativar o botão de aceite.</strong></p>
+        </div>
+
+        <div class="acoes_lgpd">
+            <button id="btn_aceitar_lgpd" disabled>Li e concordo com os Termos</button>
+        </div>
+    </div>
+</div>
+
+    <script src="global.js"></script>
+    <script src="login.js"></script>
+
+</body>
+
+</html>

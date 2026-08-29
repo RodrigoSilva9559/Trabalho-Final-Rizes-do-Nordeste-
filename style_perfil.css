@@ -1,0 +1,575 @@
+/* ==========================================
+   1. RESET GLOBAL E BASE
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #5a2b0f;
+    font-family: 'Poppins', Arial, sans-serif;
+    padding-bottom: 60px;
+    color: #ffffff;
+}
+
+/* LIXO/DESNECESSÁRIO: Regra genérica para <p> repetindo a mesma font-family e color definidas globalmente no body */
+p {
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* LIXO/DESNECESSÁRIO: Estilo para <h1> global sem uso direto na página, pois a página utiliza a classe .titulo_pagina h1 */
+h1 {
+    font-family: 'Lilita One', cursive;
+    font-size: clamp(36px, 5vw, 70px);
+    color: #ffffff;
+    -webkit-text-stroke: 3px #5a2b0f;
+    text-shadow:
+        1px 1px 0 #c85b16,
+        14px 1px 10px rgba(0,0,0,.35);
+}
+
+/* LIXO/DESNECESSÁRIO: Estilo para <h2> global sobrescrito pela classe .titulo_pagina h2 */
+h2 {
+    font-family: 'Lilita One', cursive;
+    font-size: 28px;
+    color: #ffd54f;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================
+   2. CABEÇALHO DO SITE (HEADER)
+   ========================================== */
+header.cabecalho_site {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #d05714;
+}
+
+.logo {
+    padding: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow:
+        0 5px 0 #8D5A00,
+        0 2px 2px rgba(0,0,0,.4);
+    transition: transform .3s ease;
+}
+
+.logo img:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+.caixa_titulo {
+    flex: 1;
+    text-align: center;
+}
+
+/* Complemento do Título (Unidade / Horário / Carrinho / Perfil) */
+.complemento_titulo {
+    display: flex !important; /* LIXO/DESNECESSÁRIO: Uso de !important no layout Desktop padrão */
+    flex-direction: row !important; /* LIXO/DESNECESSÁRIO: !important redundante fora de media query */
+    align-items: center !important; /* LIXO/DESNECESSÁRIO: !important redundante */
+    justify-content: space-around !important;
+    flex: 1 !important;
+    margin-top: 15px;
+    padding: 10px 0;
+}
+
+.complemento_titulo select {
+    background: #ffd54f;
+    border: 3px solid #5a2b0f;
+    border-radius: 10px;
+    padding: 4px 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.horario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.complemento_titulo img,
+.atendimento img {
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+
+.carrinho_usuario {
+    display: flex;
+    gap: 20px;
+    padding: 35px 10px 0 10px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.itens {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.itens img {
+    width: 60px;
+    height: auto;
+    background: linear-gradient(to bottom, #FFE082, #F9A825);
+    border: 3px solid #4E342E;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow:
+        0 5px 0 #7A4E00,
+        0 8px 18px rgba(0,0,0,.3);
+    transition: transform .25s ease;
+}
+
+.itens img:hover {
+    transform: translateY(-4px) scale(1.08);
+}
+
+.itens p {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* ==========================================
+   3. MENU DE NAVEGAÇÃO PRINCIPAL (NAV)
+   ========================================== */
+nav {
+    display: flex;
+    justify-content: center;
+    background: #3a1c08;
+    padding: 15px 0;
+    color: #ffffff;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0 10px;
+    margin: 5px 12px;
+    position: relative;
+    transition: color .3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 5px;
+    background: #FFD54F;
+    transition: width .3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* LIXO/DESNECESSÁRIO: A classe .menu-mobile não existe na estrutura HTML fornecida */
+.menu-mobile {
+    display: none;
+}
+
+/* ==========================================
+   4. ESTRUTURA DA PÁGINA MEU PERFIL
+   ========================================== */
+.pagina_perfil {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.titulo_pagina {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.titulo_pagina h1 {
+    font-size: clamp(30px, 4vw, 45px);
+    color: #ffd54f;
+    -webkit-text-stroke: 1.5px #3a1c08;
+}
+
+.titulo_pagina h2 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+/* Cartões de Seção do Perfil */
+.perfil_card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 25px;
+    color: #3a1c08;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    border: 3px solid #ffd54f;
+    position: relative;
+}
+
+.perfil_card h3 {
+    font-family: 'Lilita One', cursive;
+    font-size: 24px;
+    color: #d05714;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 8px;
+}
+
+/* Ícone no topo/canto do cartão */
+.icone_perfil img {
+    width: 60px;
+    height: 60px;
+    background: #ffd54f;
+    border-radius: 50%;
+    padding: 8px;
+    float: right;
+    border: 2px solid #3a1c08;
+}
+
+.icone_card {
+    font-size: 32px;
+    float: right;
+}
+
+/* Dados do Usuário */
+.dados_usuario p {
+    color: #3a1c08;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.dados_usuario strong {
+    color: #5a2b0f;
+}
+
+#btn_editar_dados {
+    margin-top: 15px;
+    background: #2e7d32;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+#btn_editar_dados:hover {
+    background: #1b5e20;
+    transform: translateY(-2px);
+}
+
+/* Histórico de Pedidos */
+.lista_pedidos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sem_pedidos {
+    color: #666666;
+    font-style: italic;
+}
+
+/* Item de Pedido Renderizado pelo JS */
+/* LIXO/DESNECESSÁRIO: As classes .item_pedido, .item_pedido_header e .item_pedido_detalhes só serão utilizadas se o arquivo perfil.js injetar elementos com esses nomes específicos */
+.item_pedido {
+    background: #fff8e1;
+    border: 1px solid #ffd54f;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.item_pedido_header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: #5a2b0f;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 6px;
+}
+
+.item_pedido_detalhes {
+    font-size: 14px;
+    color: #333333;
+}
+
+/* Programa de Fidelidade */
+.fidelidade p {
+    color: #3a1c08;
+}
+
+.fidelidade strong {
+    color: #d05714;
+}
+
+.barra_fidelidade {
+    width: 100%;
+    height: 22px;
+    background: #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 15px 0 8px 0;
+    border: 1px solid #cccccc;
+}
+
+.barra_fidelidade .progresso {
+    height: 100%;
+    background: linear-gradient(90deg, #ff8c42, #d05714);
+    border-radius: 12px;
+    transition: width 0.5s ease-in-out;
+}
+
+.pontos {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+    color: #5a2b0f;
+}
+
+.dica_fidelidade {
+    font-size: 13px;
+    color: #666666;
+    margin-top: 10px;
+}
+
+/* Botão Sair da Conta */
+.botao_sair {
+    background: #c62828;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #8e0000;
+    transition: background 0.2s, transform 0.1s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.botao_sair:hover {
+    background: #b71c1c;
+}
+
+.botao_sair:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #8e0000;
+}
+
+/* ==========================================
+   5. RODAPÉ (FOOTER)
+   ========================================== */
+/* LIXO/DESNECESSÁRIO: O elemento <footer> não está presente no arquivo HTML desta página */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #3a1c08;
+    padding: 15px 0;
+    color: #ffffff;
+    transform: translateY(100%);
+    transition: transform .3s ease;
+    z-index: 1000;
+}
+
+footer.mostrar {
+    transform: translateY(0);
+}
+
+footer a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0 10px;
+    margin: 5px 12px;
+    position: relative;
+    transition: color .3s ease;
+}
+
+footer a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 5px;
+    background: #FFD54F;
+    transition: width .3s ease;
+}
+
+footer a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================
+   6. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================== */
+@media (max-width: 768px) {
+    /* Header Mobile */
+    header.cabecalho_site {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 5px;
+        gap: 8px;
+    }
+
+    .logo {
+        padding: 5px 0 0 0;
+        border: none;
+    }
+
+    .logo img {
+        width: 50px;
+    }
+
+    .caixa_titulo h1 {
+        font-size: 26px !important;
+        -webkit-text-stroke: 1px #5a2b0f;
+        white-space: nowrap;
+    }
+
+    .caixa_titulo h2 {
+        font-size: 13px !important;
+    }
+
+    /* Complementos Header Mobile */
+    .complemento_titulo {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        align-items: flex-start !important;
+        width: 100% !important;
+        padding: 5px 10px !important;
+        gap: 10px !important;
+    }
+
+    .localizacao {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 2px !important;
+        font-size: 11px !important;
+        padding-left: 0 !important;
+    }
+
+    .localizacao p {
+        font-size: 11px !important;
+    }
+
+    .horario {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 6px !important;
+        font-size: 10px !important;
+    }
+
+    .complemento_titulo img,
+    .atendimento img {
+        width: 30px !important;
+    }
+
+    .complemento_titulo select {
+        font-size: 11px !important;
+        padding: 2px 4px !important;
+    }
+
+    /* Carrinho e Perfil Mobile */
+    .carrinho_usuario {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 20px !important;
+        padding: 5px 0 !important;
+    }
+
+    .itens img {
+        width: 35px !important;
+        padding: 4px !important;
+    }
+
+    .itens p {
+        font-size: 11px !important;
+    }
+
+    /* Navegação Inferior Mobile */
+    #nav-principal {
+        display: block !important;
+        visibility: visible !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        background: #3a1c08 !important;
+        z-index: 99999 !important;
+        padding: 8px 0 !important;
+        border-top: 2px solid #ffd54f !important;
+        box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #nav-principal .menu-lista {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #nav-principal .menu-lista a {
+        font-size: 11px !important;
+        padding: 4px 2px !important;
+        margin: 0 !important;
+        text-align: center !important;
+        flex: 1 !important;
+        color: #ffffff !important;
+        display: block !important;
+    }
+
+    #nav-principal .menu-lista a::after {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1024px){ 
+    .caixa_titulo h1 {
+        white-space: nowrap;
+    }
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Raízes do Nordeste</title>
+
+    <link rel="icon" type="image/svg+xml" href="./imagens/site/icone.svg">
+
+    <!-- CSS -->
+    <!-- LIXO/DESNECESSÁRIO: Espaço em branco excessivo entre o comentário e a tag link -->
+    <link rel="stylesheet" href="style_contato.css">
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="cabecalho_site">
+        <div class="logo">
+            <a class="img" href="index.html">
+                <img src="./imagens/site/logo.png" alt="Voltar para a página inicial">
+            </a>
+        </div>
+
+        <div class="caixa_titulo">
+            <div class="titulo">
+                <h1>Raízes do Nordeste</h1>
+                <h2>o verdadeiro sabor nordestino</h2>
+            </div>
+        </div>
+        
+        <div class="complemento_titulo">
+            <div class="localizacao">
+                <!-- LIXO/DESNECESSÁRIO: Link em imagem sem ação própria de navegação (aponta pro carrinho no ícone de local). Pode remover a tag <a> se for só um ícone -->
+                <a href="carrinho.html">
+                    <img src="./imagens/site/local (2).png" alt="Escolher unidade">
+                </a>
+                <p>Escolha sua unidade:</p>
+        
+                <select>
+                    <option>Camaquã</option>
+                    <option>Porto Alegre</option>
+                    <option>Pelotas</option>
+                </select>
+            </div>
+        
+        
+            <div class="atendimento">
+                <div class="horario">
+                    <!-- LIXO/DESNECESSÁRIO: Link direcionando pro carrinho em ícone de horário. Se não for clicável, pode remover a tag <a> -->
+                    <a href="carrinho.html">
+                        <img src="./imagens/site/horario (2).png" alt="Horário de atendimento">
+                    </a>
+                    <p>Aberto<br>de terça a domingo<br>das 18h às 23h</p>
+                </div>
+            </div>
+
+
+            <div class="carrinho_usuario">
+                <div class="itens">
+                    <a href="carrinho.html">
+                        <img src="./imagens/site/carrinho.png" alt="Carrinho de Compras">
+                    </a>
+                    <p>Meu Carrinho</p>
+                </div>
+
+                <div class="itens">
+                    <a href="login_cadastro.html">
+                        <img src="./imagens/site/usuario.png" alt="Perfil do Usuário">
+                    </a>
+                    <p>Meu Perfil</p>
+                </div>
+            </div>
+         </div>
+    </header>
+
+    <!-- Navegação Principal -->
+    <nav id="nav-principal">
+        <div class="menu-lista">
+            <a href="index.html">🏠 HOME</a>
+            <a href="cardapio.html">📋 CARDÁPIO</a>
+            <a href="sobre.html">ℹ️ SOBRE NÓS</a>
+            <a href="contato.html">👤 CONTATO</a>
+        </div>
+    </nav>
+
+    <!-- ================= CONTEÚDO PRINCIPAL ================= -->
+    <main class="container_contato">
+
+        <div class="titulo_pagina">
+            <h1>Fale Conosco</h1>
+            <p>Dúvidas, sugestões ou elogios? Envie uma mensagem para a nossa equipe!</p>
+        </div>
+
+        <div class="conteudo_flex">
+
+            <!-- Formulário -->
+            <form class="formulario_contato">
+                <div class="campo">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+                </div>
+
+                <div class="campo">
+                    <label for="telefone">Telefone / WhatsApp</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+                </div>
+
+                <div class="campo">
+                    <label for="assunto">Assunto</label>
+                    <select id="assunto" name="assunto">
+                        <option value="duvida">Dúvidas gerais</option>
+                        <option value="pedido">Suporte a pedidos</option>
+                        <option value="sugestao">Sugestões ou elogios</option>
+                        <option value="parceria">Parcerias / Eventos</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                </div>
+
+                <button type="submit" class="botao_enviar">🚀 Enviar Mensagem</button>
+            </form>
+
+            <!-- Cards com Canais Rápidos -->
+            <div class="canais_atendimento">
+
+                <div class="card_canal">
+                    <div class="icone">📱</div>
+                    <h3>WhatsApp</h3>
+                    <p>Atendimento rápido para dúvidas e suporte.</p>
+                    <strong>(51) 99999-9999</strong>
+                </div>
+
+                <div class="card_canal">
+                    <div class="icone">✉️</div>
+                    <h3>E-mail</h3>
+                    <p>Para assuntos corporativos e feedbacks.</p>
+                    <strong>contato@raizesdonordeste.com.br</strong>
+                </div>
+
+                <div class="card_canal">
+                    <div class="icone">📍</div>
+                    <h3>Nossa Matriz</h3>
+                    <p>Camaquã - RS</p>
+                    <span>Terça a Domingo - 18h às 23h</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="global.js"></script>
+
+</body>
+
+</html>

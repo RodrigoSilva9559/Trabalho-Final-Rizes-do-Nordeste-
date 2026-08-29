@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Pedido | Raízes do Nordeste</title>
+
+    <link rel="icon" type="image/svg+xml" href="./imagens/site/icone.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style_pedido.css">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="cabecalho_site">
+        <div class="logo">
+            <a class="img" href="index.html">
+                <img src="./imagens/site/logo.png" alt="Voltar para a página inicial">
+            </a>
+        </div>
+
+        <div class="caixa_titulo">
+            <div class="titulo">
+                <h1>Raízes do Nordeste</h1>
+                <h2>o verdadeiro sabor nordestino</h2>
+            </div>
+        </div>
+        
+        <div class="complemento_titulo">
+            <div class="localizacao">
+                <!-- LIXO/DESNECESSÁRIO: Envolver a imagem de unidade num link para "carrinho.html" que não tem relação com o select de unidades -->
+                <a href="carrinho.html">
+                    <img src="./imagens/site/local (2).png" alt="Escolher unidade">
+                </a>
+                <p>Escolha sua unidade:</p>
+        
+                <select>
+                    <option>Camaquã</option>
+                    <option>Porto Alegre</option>
+                    <option>Pelotas</option>
+                </select>
+            </div>
+        
+        
+            <div class="atendimento">
+                <div class="horario">
+                    <!-- LIXO/DESNECESSÁRIO: Envolver a imagem de horário num link para "carrinho.html" sem função de navegação coerente -->
+                    <a href="carrinho.html">
+                        <img src="./imagens/site/horario (2).png" alt="Horário de atendimento">
+                    </a>
+                    <p>Aberto<br>de terça a domingo<br>das 18h às 23h</p>
+                </div>
+            </div>
+
+
+            <div class="carrinho_usuario">
+                <div class="itens">
+                    <a href="carrinho.html">
+                        <img src="./imagens/site/carrinho.png" alt="Carrinho de Compras">
+                    </a>
+                    <p>Meu Carrinho</p>
+                </div>
+
+                <div class="itens">
+                    <a href="login_cadastro.html">
+                        <img src="./imagens/site/usuario.png" alt="Perfil do Usuário">
+                    </a>
+                    <p>Meu Perfil</p>
+                </div>
+            </div>
+         </div>
+    </header>
+
+    <!-- Navegação Principal -->
+    <nav id="nav-principal">
+        <div class="menu-lista">
+            <a href="index.html">🏠 HOME</a>
+            <a href="cardapio.html">📋 CARDÁPIO</a>
+            <a href="sobre.html">ℹ️ SOBRE NÓS</a>
+            <a href="contato.html">👤 CONTATO</a>
+        </div>
+    </nav>
+
+    <!-- ================= PEDIDO ================= -->
+    <main class="pagina_pedido">
+
+        <div class="titulo_pedido">
+            <h1>📦 Finalizar Pedido</h1>
+            <p>Confira seus dados antes de confirmar o pedido.</p>
+        </div>
+
+        <form onsubmit="confirmarPedido(event);" class="area_pedido">
+
+            <!-- ================= DADOS ================= -->
+            <section class="dados_pedido">
+
+                <!-- ENDEREÇO -->
+                <div class="caixa_pedido">
+                    <h2>📍 Endereço de Entrega</h2>
+
+                    <div class="campo">
+                        <label for="nome">Nome completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                    </div>
+
+                    <div class="linha_campos">
+                        <div class="campo">
+                            <label for="cep">CEP</label>
+                            <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+                        </div>
+
+                        <div class="campo campo_maior">
+                            <label for="rua">Rua</label>
+                            <input type="text" id="rua" name="rua" placeholder="Nome da rua" required>
+                        </div>
+                    </div>
+
+                    <div class="linha_campos">
+                        <div class="campo">
+                            <label for="numero">Número</label>
+                            <input type="text" id="numero" name="numero" placeholder="Número" required>
+                        </div>
+
+                        <div class="campo campo_maior">
+                            <label for="complemento">Complemento</label>
+                            <input type="text" id="complemento" name="complemento" placeholder="Apartamento, casa...">
+                        </div>
+                    </div>
+
+                    <div class="linha_campos">
+                        <div class="campo campo_maior">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                        </div>
+
+                        <div class="campo campo_maior">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAGAMENTO -->
+                <div class="caixa_pedido pagamento">
+                    <h2>💳 Forma de Pagamento</h2>
+
+                    <label class="opcao_pagamento" for="pix">
+                        <input type="radio" id="pix" name="pagamento" value="pix" required>
+                        <span>💠 PIX</span>
+                    </label>
+
+                    <label class="opcao_pagamento" for="credito">
+                        <input type="radio" id="credito" name="pagamento" value="credito">
+                        <span>💳 Cartão de Crédito</span>
+                    </label>
+
+                    <label class="opcao_pagamento" for="debito">
+                        <input type="radio" id="debito" name="pagamento" value="debito">
+                        <span>💳 Cartão de Débito</span>
+                    </label>
+
+                    <label class="opcao_pagamento" for="dinheiro">
+                        <input type="radio" id="dinheiro" name="pagamento" value="dinheiro">
+                        <span>💵 Dinheiro</span>
+                    </label>
+                </div>
+
+                <!-- OBSERVAÇÃO -->
+                <div class="caixa_pedido">
+                    <h2>📝 Observações</h2>
+                    <textarea name="observacoes" placeholder="Alguma observação sobre seu pedido?"></textarea>
+                </div>
+
+            </section>
+
+            <!-- ================= RESUMO ================= -->
+            <aside class="resumo_pedido">
+
+                <!-- BLOCO FIDELIDADE -->
+                <div class="caixa_fidelidade">
+                    <h3>🎁 Programa de Fidelidade</h3>
+                    <p id="exibicao_saldo">Você possui <strong>0</strong> Pontos Fidelidade</p>
+
+                    <!-- LIXO/DESNECESSÁRIO: estilo inline display:none pode ser transferido para o CSS -->
+                    <div class="opcao_resgate" id="container_resgate" style="display: none;">
+                        <label>
+                            <input type="checkbox" id="chk_resgatar_pontos" onchange="calcularResumoPedido()">
+                            <p>Usar 100 pontos para R$ 10,00 de desconto</p>
+                        </label>
+                    </div>
+                </div>
+
+                <h2>🛒 Resumo do Pedido</h2>
+
+                <!-- Container dinâmico dos produtos -->
+                <div id="lista_resumo_produtos"></div>
+
+                <hr>
+
+                <div class="linha_resumo">
+                    <span>Subtotal</span>
+                    <strong id="subtotal_valor">R$ 0,00</strong>
+                </div>
+
+                <div class="linha_resumo">
+                    <span>Entrega</span>
+                    <strong>R$ 5,00</strong>
+                </div>
+
+                <hr>
+
+                <div class="total">
+                    <span>Total</span>
+                    <strong id="valor_total">R$ 0,00</strong>
+                </div>
+
+                <button type="submit" class="btn_confirmar">
+                    ✅ CONFIRMAR PEDIDO
+                </button>
+
+                <button type="button" class="btn_voltar" onclick="location.href='carrinho.html'">
+                    ← Voltar ao carrinho
+                </button>
+
+            </aside>
+
+        </form>
+
+    </main>
+
+<!-- Modal de Pagamento PIX -->
+    <!-- LIXO/DESNECESSÁRIO: estilo inline display:none pode ser controlado por classe ou CSS central -->
+    <div id="modal_pix" class="modal_overlay" style="display: none;">
+        <div class="modal_conteudo">
+            <div id="status_pix_pendente">
+                <h2>Aguardando Pagamento...</h2>
+                <p>Escaneie o QR Code abaixo para pagar via PIX:</p>
+                <div class="qrcode_container">
+                    <img src="./imagens/site/QRCode_Pagamento.png" alt="QR Code PIX">
+                </div>
+                <p class="timer_info">Confirmando pagamento em instantes...</p>
+            </div>
+
+            <!-- LIXO/DESNECESSÁRIO: estilo inline display:none -->
+            <div id="status_pix_sucesso" style="display: none;">
+                <div class="icone_sucesso">✓</div>
+                <h2>Pagamento Realizado com Sucesso!</h2>
+                <p>Seu pedido foi recebido e já está sendo preparado.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Pagamento Cartão -->
+    <!-- LIXO/DESNECESSÁRIO: estilo inline display:none -->
+    <div id="modal_cartao" class="modal_overlay" style="display: none;">
+        <div class="modal_conteudo">
+            <div id="status_cartao_form">
+                <h2>Dados do Cartão</h2>
+                <form onsubmit="processarPagamentoCartao(event);">
+                    <div class="campo_cartao">
+                        <label for="numero_cartao">Número do Cartão</label>
+                        <input type="text" id="numero_cartao" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                    </div>
+
+                    <div class="campo_cartao">
+                        <label for="nome_cartao">Nome Impresso no Cartão</label>
+                        <input type="text" id="nome_cartao" placeholder="NOME COMO NO CARTÃO" required>
+                    </div>
+
+                    <div class="linha_campos_cartao">
+                        <div class="campo_cartao">
+                            <label for="validade_cartao">Validade</label>
+                            <input type="text" id="validade_cartao" placeholder="MM/AA" maxlength="5" required>
+                        </div>
+                        <div class="campo_cartao">
+                            <label for="cvv_cartao">CVV</label>
+                            <input type="text" id="cvv_cartao" placeholder="123" maxlength="4" required>
+                        </div>
+                    </div>
+
+                    <div class="botoes_cartao">
+                        <button type="submit" class="btn_confirmar_cartao">Confirmar Pagamento</button>
+                        <button type="button" class="btn_cancelar_cartao" onclick="fecharModalCartao()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- LIXO/DESNECESSÁRIO: estilo inline display:none -->
+            <div id="status_cartao_pendente" style="display: none;">
+                <h2>Processando Pagamento...</h2>
+                <p>Aguarde enquanto validamos a transação com sua operadora de cartão.</p>
+                <p class="timer_info">Isso levará poucos segundos...</p>
+            </div>
+
+            <!-- LIXO/DESNECESSÁRIO: estilo inline display:none -->
+            <div id="status_cartao_sucesso" style="display: none;">
+                <div class="icone_sucesso">✓</div>
+                <h2>Pagamento Realizado com Sucesso!</h2>
+                <p>Seu pedido foi recebido e já está sendo preparado.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <script src="global.js"></script>
+    <script src="pedido.js"></script>
+
+</body>
+
+</html>

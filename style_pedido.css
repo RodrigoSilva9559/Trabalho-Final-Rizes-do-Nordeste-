@@ -329,6 +329,8 @@ textarea:focus {
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
+
+
 #validade_cartao {
     width: 100%;
     box-sizing: border-box;
@@ -336,13 +338,13 @@ textarea:focus {
 
 .modal_conteudo h2 {
     font-family: 'Lilita One', cursive;
+    font-size: 20px;
     color: #4E342E;
     margin-bottom: 10px;
 }
 
 .modal_conteudo p {
     color: #3a1c08;
-    font-size: 15px;
 }
 
 .qrcode_container img {

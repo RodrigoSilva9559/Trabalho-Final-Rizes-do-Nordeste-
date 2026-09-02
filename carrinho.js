@@ -11,7 +11,7 @@ function renderizarCarrinho() {
     if (!containerCarrinho) return;
 
     if (carrinho.length === 0) {
-        containerCarrinho.innerHTML = `<h2>Seus produtos</h2><p class="carrinho_vazio">Seu carrinho está vazio 🛒</p>`;
+        containerCarrinho.innerHTML = `<h2>Seus produtos</h2><p class="carrinho_vazio">Seu carrinho está vazio</p>`;
         if (containerSubtotal) containerSubtotal.innerText = 'R$ 0,00';
         if (containerTotal) containerTotal.innerText = 'R$ 0,00';
         return;

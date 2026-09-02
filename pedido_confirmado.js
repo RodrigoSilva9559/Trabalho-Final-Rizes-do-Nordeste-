@@ -27,7 +27,7 @@ function carregarDadosPedido() {
 
         if (ultimoPedido.pontosGanhos > 0 && elCaixaPontos && elMsgPontos) {
             elCaixaPontos.style.display = 'block';
-            elMsgPontos.innerText = `🎉 Você acumulou +${ultimoPedido.pontosGanhos} pontos fidelidade com este pedido!`;
+            elMsgPontos.innerText = `Você acumulou +${ultimoPedido.pontosGanhos} pontos fidelidade com este pedido!`;
         }
     }
 }

@@ -1,0 +1,321 @@
+/* ==========================================
+   1. RESET GLOBAL E BASE
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #5a2b0f;
+    font-family: 'Poppins', Arial, sans-serif;
+    padding-bottom: 60px;
+    color: #ffffff;
+}
+
+h1 {
+    font-family: 'Lilita One', cursive;
+    font-size: clamp(36px, 5vw, 50px);
+    color: #ffffff;
+    -webkit-text-stroke: 3px #5a2b0f;
+    text-shadow: 1px 1px 0 #c85b16, 14px 1px 10px rgba(0, 0, 0, .35);
+    white-space: nowrap;
+}
+
+h2 {
+    font-family: 'Lilita One', cursive;
+    font-size: clamp(20px, 5vw, 40px);
+    color: #ffd54f;
+    font-weight: normal;
+    white-space: nowrap;
+}
+
+p {
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================
+   2. CABEÇALHO SITE
+   ========================================== */
+header.cabecalho_site {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #d05714;
+}
+
+/* --- LOGO --- */
+.logo {
+    padding: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 0 #8D5A00, 0 2px 2px rgba(0, 0, 0, .4);
+    transition: transform .3s ease;
+}
+
+.logo img:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+/* --- TÍTULO DO CABEÇALHO --- */
+.caixa_titulo {
+    flex: 1;
+    text-align: center;
+}
+
+/* --- COMPLEMENTOS (LOCALIZAÇÃO & ATENDIMENTO) --- */
+.complemento_titulo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1;
+    margin-top: 15px;
+    padding: 10px 0;
+}
+
+.complemento_titulo select {
+    background: #ffd54f;
+    border: 3px solid #5a2b0f;
+    border-radius: 10px;
+    padding: 4px 8px;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.horario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.complemento_titulo img,
+.atendimento img {
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+
+/* --- CARRINHO & PERFIL --- */
+.carrinho_usuario {
+    display: flex;
+    gap: 20px;
+    padding: 35px 10px 0 10px;
+    text-align: center;
+}
+
+.itens {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.itens img {
+    width: 60px;
+    height: auto;
+    background: linear-gradient(to bottom, #FFE082, #F9A825);
+    border: 3px solid #4E342E;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 5px 0 #7A4E00, 0 8px 18px rgba(0, 0, 0, .3);
+    transition: transform .25s ease;
+}
+
+.itens img:hover {
+    transform: translateY(-4px) scale(1.08);
+}
+
+.itens p {
+    font-weight: bold;
+}
+
+/* ==========================================
+   3. NAVEGAÇÃO PRINCIPAL (NAV)
+   ========================================== */
+nav {
+    display: flex;
+    justify-content: center;
+    background: #3a1c08;
+    padding: 15px 0;
+}
+
+nav a {
+    font-weight: bold;
+    padding: 0 10px;
+    margin: 5px 12px;
+    position: relative;
+    transition: color .3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 5px;
+    background: #FFD54F;
+    transition: width .3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================
+   4. RESPONSIVIDADE (MOBILE - ATÉ 768px)
+   ========================================== */
+@media (max-width: 768px) {
+    header.cabecalho_site {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 5px;
+        gap: 8px;
+    }
+
+    .logo {
+        padding: 5px 0 0 0;
+        border: none;
+    }
+
+    .logo img {
+        width: 50px;
+    }
+
+    .caixa_titulo {
+        border: none;
+    }
+
+    .caixa_titulo h1 {
+        font-size: clamp(20px, 5vw, 70px);
+        -webkit-text-stroke: 1px #5a2b0f;
+        white-space: nowrap;
+    }
+
+    .caixa_titulo h2 {
+        font-size: clamp(20px, 2vw, 50px);
+        white-space: nowrap;
+    }
+
+    .complemento_titulo {
+        justify-content: space-around;
+        align-items: flex-start;
+        width: 100%;
+        padding: 5px 10px;
+        gap: 10px;
+    }
+
+    .localizacao {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        font-size: 11px;
+        padding-left: 0;
+    }
+
+    .localizacao p {
+        font-size: 11px;
+    }
+
+    .horario {
+        gap: 6px;
+        font-size: 10px;
+    }
+
+    .complemento_titulo img,
+    .atendimento img {
+        width: 30px;
+    }
+
+    .complemento_titulo select {
+        font-size: 11px;
+        padding: 2px 4px;
+    }
+
+    .carrinho_usuario {
+        justify-content: center;
+        gap: 20px;
+        padding: 5px 0;
+    }
+
+    .itens img {
+        width: 35px;
+        padding: 4px;
+    }
+
+    .itens p {
+        font-size: 11px;
+    }
+
+    /* Navegação Fixa no Rodapé */
+    #nav-principal {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        background: #3a1c08;
+        z-index: 9999;
+        padding: 8px 0;
+        border-top: 2px solid #ffd54f;
+        box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #nav-principal .menu-lista {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #nav-principal .menu-lista a {
+        font-size: 11px;
+        padding: 4px 2px;
+        margin: 0;
+        text-align: center;
+        flex: 1;
+        display: block;
+    }
+
+    #nav-principal .menu-lista a::after {
+        display: none;
+    }
+}
+
+/* --- TABLET / INTERMEDIÁRIO (ATÉ 992PX) --- */
+@media (max-width: 992px) {
+    .area-categorias,
+    .area_mais_vendidos {
+        flex-direction: column;
+    }
+
+    .lista-mais-vendidos {
+        flex-direction: column;
+    }
+
+    .fidelidade,
+    .vantagens {
+        width: 100%;
+    }
+}

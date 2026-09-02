@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finalizar Pedido | Raízes do Nordeste</title>
 
-    <link rel="icon" type="imagens/site/svg+xml" href="imagens/site/icone.png">
+    <link rel="icon" type="image/svg+xml" href="./imagens/site/icone.png">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style_pedido.css">
+    <link rel="stylesheet" href="style_global.css">
 
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +36,6 @@
         
         <div class="complemento_titulo">
             <div class="localizacao">
-                <!-- LIXO/DESNECESSÁRIO: Envolver a imagem de unidade num link para "carrinho.html" que não tem relação com o select de unidades -->
                 <a href="carrinho.html">
                     <img src="./imagens/site/local (2).png" alt="Escolher unidade">
                 </a>
@@ -51,7 +51,6 @@
         
             <div class="atendimento">
                 <div class="horario">
-                    <!-- LIXO/DESNECESSÁRIO: Envolver a imagem de horário num link para "carrinho.html" sem função de navegação coerente -->
                     <a href="carrinho.html">
                         <img src="./imagens/site/horario (2).png" alt="Horário de atendimento">
                     </a>
@@ -92,8 +91,8 @@
     <main class="pagina_pedido">
 
         <div class="titulo_pedido">
-            <h1>📦 Finalizar Pedido</h1>
-            <p>Confira seus dados antes de confirmar o pedido.</p>
+            <h1>Finalizar Pedido</h1>
+            <h2>Confira seus dados antes de confirmar o pedido.</h2>
         </div>
 
         <form onsubmit="confirmarPedido(event);" class="area_pedido">
@@ -188,7 +187,6 @@
                     <h3>🎁 Programa de Fidelidade</h3>
                     <p id="exibicao_saldo">Você possui <strong>0</strong> Pontos Fidelidade</p>
 
-                    <!-- LIXO/DESNECESSÁRIO: estilo inline display:none pode ser transferido para o CSS -->
                     <div class="opcao_resgate" id="container_resgate" style="display: none;">
                         <label>
                             <input type="checkbox" id="chk_resgatar_pontos" onchange="calcularResumoPedido()">
@@ -236,7 +234,6 @@
     </main>
 
 <!-- Modal de Pagamento PIX -->
-    <!-- LIXO/DESNECESSÁRIO: estilo inline display:none pode ser controlado por classe ou CSS central -->
     <div id="modal_pix" class="modal_overlay" style="display: none;">
         <div class="modal_conteudo">
             <div id="status_pix_pendente">
@@ -248,7 +245,6 @@
                 <p class="timer_info">Confirmando pagamento em instantes...</p>
             </div>
 
-            <!-- LIXO/DESNECESSÁRIO: estilo inline display:none -->
             <div id="status_pix_sucesso" style="display: none;">
                 <div class="icone_sucesso">✓</div>
                 <h2>Pagamento Realizado com Sucesso!</h2>
@@ -258,7 +254,6 @@
     </div>
 
     <!-- Modal de Pagamento Cartão -->
-    <!-- LIXO/DESNECESSÁRIO: estilo inline display:none -->
     <div id="modal_cartao" class="modal_overlay" style="display: none;">
         <div class="modal_conteudo">
             <div id="status_cartao_form">
@@ -292,14 +287,12 @@
                 </form>
             </div>
 
-            <!-- LIXO/DESNECESSÁRIO: estilo inline display:none -->
             <div id="status_cartao_pendente" style="display: none;">
                 <h2>Processando Pagamento...</h2>
                 <p>Aguarde enquanto validamos a transação com sua operadora de cartão.</p>
                 <p class="timer_info">Isso levará poucos segundos...</p>
             </div>
 
-            <!-- LIXO/DESNECESSÁRIO: estilo inline display:none -->
             <div id="status_cartao_sucesso" style="display: none;">
                 <div class="icone_sucesso">✓</div>
                 <h2>Pagamento Realizado com Sucesso!</h2>

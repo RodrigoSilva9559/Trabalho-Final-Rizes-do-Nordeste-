@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Perfil | Raízes do Nordeste</title>
 
-    <link rel="icon" type="imagens/site/svg+xml" href="imagens/site/icone.png">
+    <link rel="icon" type="image/svg+xml" href="./imagens/site/icone.png">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style_perfil.css">
+    <link rel="stylesheet" href="style_global.css">
 
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +36,6 @@
         
         <div class="complemento_titulo">
             <div class="localizacao">
-                <!-- LIXO/DESNECESSÁRIO: Envolver a imagem de unidade num link para "carrinho.html" que não leva à seleção de unidade -->
                 <a href="carrinho.html">
                     <img src="./imagens/site/local (2).png" alt="Escolher unidade">
                 </a>
@@ -51,7 +51,6 @@
         
             <div class="atendimento">
                 <div class="horario">
-                    <!-- LIXO/DESNECESSÁRIO: Envolver a imagem de horário num link para "carrinho.html" sem função de navegação real -->
                     <a href="carrinho.html">
                         <img src="./imagens/site/horario (2).png" alt="Horário de atendimento">
                     </a>
@@ -69,7 +68,6 @@
                 </div>
 
                 <div class="itens">
-                    <!-- LIXO/DESNECESSÁRIO: Link para "login_cadastro.html" no ícone de perfil enquanto o usuário já está na página de perfil -->
                     <a href="login_cadastro.html">
                         <img src="./imagens/site/usuario.png" alt="Perfil do Usuário">
                     </a>
@@ -121,12 +119,10 @@
             <div class="icone_card">📦</div>
 
             <h3>Meus Pedidos</h3>
-            <!-- LIXO/DESNECESSÁRIO: Estilos inline (margin-bottom, font-weight, color) poderiam estar no arquivo CSS -->
             <p style="margin-bottom: 15px; font-weight: 500;">
                 Total de pedidos realizados: <strong id="total_pedidos_contador" style="color: #d05714;">0</strong>
             </p>
 
-            <!-- Lista dinâmica onde os pedidos salvos no localStorage serão inseridos -->
             <div id="lista_pedidos_usuario" class="lista_pedidos">
                 <p class="sem_pedidos">Buscando histórico...</p>
             </div>
@@ -141,7 +137,6 @@
             <p>Você possui <strong id="saldo_pontos_perfil">0 pontos</strong></p>
 
             <div class="barra_fidelidade">
-                <!-- LIXO/DESNECESSÁRIO: Estilo inline (width: 0%) que será sobrescrito pelo JavaScript -->
                 <div class="progresso" id="barra_progresso_fidelidade" style="width: 0%;"></div>
             </div>
 
